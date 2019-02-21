@@ -1,0 +1,14 @@
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.csproj.CoreCompileInputs.cache
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.RazorAssemblyInfo.cache
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.RazorAssemblyInfo.cs
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.AssemblyInfoInputs.cache
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.AssemblyInfo.cs
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\bin\Debug\netcoreapp2.1\MyPortalAgency_API.deps.json
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\bin\Debug\netcoreapp2.1\MyPortalAgency_API.runtimeconfig.json
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\bin\Debug\netcoreapp2.1\MyPortalAgency_API.runtimeconfig.dev.json
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\bin\Debug\netcoreapp2.1\MyPortalAgency_API.dll
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.RazorTargetAssemblyInfo.cache
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\bin\Debug\netcoreapp2.1\MyPortalAgency_API.pdb
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.csprojAssemblyReference.cache
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.dll
+C:\Users\ahmed\source\repos\MyPortalAgency\MyPortalAgency_API\obj\Debug\netcoreapp2.1\MyPortalAgency_API.pdb
