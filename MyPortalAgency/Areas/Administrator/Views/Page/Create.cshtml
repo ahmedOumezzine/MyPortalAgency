@@ -1,0 +1,44 @@
+﻿@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/bootstrap-3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <!-- Start of KEditor styles -->
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/dist/css/keditor.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/dist/css/keditor-components.min.css" />
+    <!-- End of KEditor styles -->
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/code-prettify/src/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="~/portal/keditor/css/examples.css" />
+}
+<div data-keditor="html">
+    <div id="content-area">
+        <section>
+            <div class="row">
+                <div class="col-sm-6" data-type="container-content">
+
+                </div>
+                <div class="col-sm-6" data-type="container-content">
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+@section Scripts{
+
+
+    <script type="text/javascript" src="~/portal/keditor/plugins/jquery-1.11.3/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/ckeditor-4.5.6/ckeditor.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/ckeditor-4.5.6/adapters/jquery.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/formBuilder-2.5.3/form-builder.min.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/plugins/formBuilder-2.5.3/form-render.min.js"></script>
+    <!-- Start of KEditor scripts -->
+    <script type="text/javascript" src="~/portal/keditor/dist/js/keditor.js"></script>
+    <script type="text/javascript" src="~/portal/keditor/dist/js/keditor-components.min.js"></script>
+    <!-- End of KEditor scripts -->
+    <script type="text/javascript" data-keditor="script">
+        $(function () {
+            $('#content-area').keditor();
+        });
+    </script>
+}
