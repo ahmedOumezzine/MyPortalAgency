@@ -6,14 +6,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using JWTAuthentication.Models;
+using MyPortalAgency_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace JWTAuthentication.Controllers
+namespace MyPortalAgency_API.Controllers
 {
     [Route("[controller]")]
     [ApiController]

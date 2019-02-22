@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JWTAuthentication.Controllers
+namespace MyPortalAgency_API.Controllers
 {
     [Route("[controller]")]
     [ApiController]

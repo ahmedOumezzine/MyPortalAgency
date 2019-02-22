@@ -1,8 +1,8 @@
-﻿using JWTAuthentication.Models;
+﻿using MyPortalAgency_API.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace JWTAuthentication.Contexts
+namespace MyPortalAgency_API.Contexts
 {
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
