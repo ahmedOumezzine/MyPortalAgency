@@ -75,28 +75,40 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Enable middleware to serve generated Swagger as a JSON endpoint.  
+            app.UseSwagger();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint( "/swagger/v1/swagger.json", "My API V1");
+                });
+
             }
             else
             {
                 app.UseHsts();
+                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("http://myportalagency.azurewebsites.net/API/swagger/v1/swagger.json", "My API V1");
+                });
             }
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
 
-            // Enable middleware to serve generated Swagger as a JSON endpoint.  
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
-            app.UseSwaggerUI(c =>
+      
+        
+            app.UseMvc(routes =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.UseMvc();
         }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JWTAuthentication.Controllers
 {
-    [Route("api/Account")]
+    [Route("[controller]")]
     [ApiController]
     [Authorize]
     public class ManageController : Controller

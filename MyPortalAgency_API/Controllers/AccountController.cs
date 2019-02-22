@@ -15,7 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace JWTAuthentication.Controllers
 {
-    [Route("api/Account")]
+    [Route("[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
