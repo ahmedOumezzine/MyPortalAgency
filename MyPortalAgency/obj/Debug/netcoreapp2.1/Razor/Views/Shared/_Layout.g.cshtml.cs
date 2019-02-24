@@ -60,7 +60,7 @@ using MyPortalAgency.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 113289, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a41ca0f26f7a493abc6576d3c04fc4b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c70cadf477304ed3bff9b8e48c20d62f", async() => {
                 BeginContext(31, 838, true);
                 WriteLiteral(@"
     <meta charset=""utf-8"">
@@ -1166,7 +1166,7 @@ using MyPortalAgency.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(113316, 8560, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "821eafc2618b480f9dd55d2a8272e828", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2ef8eb10897495cbfe5ff327f0f5639", async() => {
                 BeginContext(113322, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
@@ -1222,7 +1222,7 @@ using MyPortalAgency.Models;
                     ");
                 EndContext();
                 BeginContext(116947, 627, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a818acd84b94d0cb12ec0d1f862846e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff3bdbfdf9b547909709258887ddcb00", async() => {
                     BeginContext(117052, 515, true);
                     WriteLiteral(@"
                         <div class=""input-group input-group-rounded"">

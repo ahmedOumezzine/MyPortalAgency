@@ -1,44 +1,123 @@
-﻿@section Styles{
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/bootstrap-3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
-    <!-- Start of KEditor styles -->
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/dist/css/keditor.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/dist/css/keditor-components.min.css" />
-    <!-- End of KEditor styles -->
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/plugins/code-prettify/src/prettify.css" />
-    <link rel="stylesheet" type="text/css" href="~/portal/keditor/css/examples.css" />
+﻿ 
+
+@section Styles{
+    <script src="~/portal/shoelace/js/jquery-latest.min.js"></script>
+      <link rel="stylesheet" href="~/portal/shoelace/css/bigsky.aui.css">
+    <link rel="stylesheet" href="~/portal/shoelace/css/styles.css">
+    <style>
+        .col {
+            width: auto !important;
+            padding-right: 0px;
+            padding-left: 0px;
+        } 
+    </style>
 }
-<div data-keditor="html">
-    <div id="content-area">
-        <section>
-            <div class="row">
-                <div class="col-sm-6" data-type="container-content">
 
-                </div>
-                <div class="col-sm-6" data-type="container-content">
-
-                </div>
-            </div>
-        </section>
-    </div>
-</div>
 @section Scripts{
-
-
-    <script type="text/javascript" src="~/portal/keditor/plugins/jquery-1.11.3/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/ckeditor-4.5.6/ckeditor.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/ckeditor-4.5.6/adapters/jquery.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/formBuilder-2.5.3/form-builder.min.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/plugins/formBuilder-2.5.3/form-render.min.js"></script>
-    <!-- Start of KEditor scripts -->
-    <script type="text/javascript" src="~/portal/keditor/dist/js/keditor.js"></script>
-    <script type="text/javascript" src="~/portal/keditor/dist/js/keditor-components.min.js"></script>
-    <!-- End of KEditor scripts -->
-    <script type="text/javascript" data-keditor="script">
-        $(function () {
-            $('#content-area').keditor();
+    <script>
+        $(".cols .col .dragging").each(function (index) {
+            $(this).on("click", function () {
+                // For the boolean value
+                var boolKey = $(this).data('selected');
+                // For the mammal value
+                var mammalKey = $(this).attr('id');
+                alert(mammalKey);
+            });
         });
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript" src="https://beautifier.io/js/lib/beautify-html.js"></script>
+    <script type="text/javascript" src="~/portal/shoelace/js/cljs.js"></script>
 }
+
+
+<div class="application-frame easing">
+    <div class="panels-wrapper">
+        <div class="navigator easing">
+            <div class="preview xs easing">
+                <div class="title-bar">
+                    <div class="size-icon"><i class="icon-mobile-phone"> </i></div>
+                    <div class="title">Phone</div>
+                </div>
+                <div class="preview-container">
+                    <div class="preview-rows"></div>
+                </div>
+            </div>
+            <div class="preview sm easing">
+                <div class="title-bar">
+                    <div class="size-icon"><i class="icon-tablet"> </i></div>
+                    <div class="title">Tablet</div>
+                </div>
+                <div class="preview-container">
+                    <div class="preview-rows"></div>
+                </div>
+            </div>
+            <div class="preview md easing">
+                <div class="title-bar">
+                    <div class="size-icon"><i class="icon-laptop"> </i></div>
+                    <div class="title">Desktop</div>
+                </div>
+                <div class="preview-container">
+                    <div class="preview-rows"></div>
+                </div>
+            </div>
+            <div class="preview lg easing">
+                <div class="title-bar">
+                    <div class="size-icon"><i class="icon-desktop">  </i></div>
+                    <div class="title">Large Desktop</div>
+                </div>
+                <div class="preview-container">
+                    <div class="preview-rows"></div>
+                </div>
+            </div>
+        </div>
+        <div class="workspace easing output-collapsed"></div>
+        <div class="html easing collapsed">
+            <div class="collapse-panel right collapsed"> <span class="open"><i class="icon-caret-right"> </i></span><span class="closed"><i class="icon-caret-left"> </i></span></div>
+            <div class="html-wrapper">
+                <div class="options easing">
+                    <ul>
+                        <li class="output-html easing active">HTML</li>
+                        <li class="output-jade easing">Jade</li>
+                        <li class="output-edn easing">EDN</li>
+                    </ul>
+                    <div class="container-check">
+                        <label>
+                            <input type="checkbox" class="use-less-mixin">Use LESS Mixin
+                        </label>
+                        <label>
+                            <input type="checkbox" class="include-container">Include Container
+                        </label>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="output_container">
+                    <div class="copy-code">Copy</div>
+                    <pre class="output prettyprint lang-html markup"></pre>
+                    <pre class="output prettyprint lang-text mixins"></pre>
+                </div>
+                <textarea class="copy-output"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="preview preview-pane hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                Hover Guide
+                <ul class="hover-guide">
+                    <li class="container-guide">Gray - Container</li>
+                    <li class="row-guide">Red - Row</li>
+                    <li class="col-guide">Blue - Col</li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container output-preview"></div>
+</div>
+
+<div class="blackout-overlay">
+    <div class="notification">Lacing it up!</div>
+</div>
