@@ -527,8 +527,24 @@ function prepareEditor(part, row, column) {
             txt.append('<textarea id="codeeditor" style="min-height:150px;width:100%; display:block;">' + style_html(part.find('div.view').html()) + '</textarea>');
             txt.show();
 
- 
+            confirm.bind('click', function (e) {
+                e.preventDefault();
+                saveRowSettings(row);
+                saveColumnSettings(column);
+                //code.data('code', $('#codeeditor').val());
+                part.find('div.view').html($('#codeeditor').val());
 
+            });
+            break;
+        case 'code3':
+            $('#class').parent().hide();
+            $('#id').parent().hide();
+
+
+            var txt = $('#code3');
+            $('#codeeditor').remove();
+            txt.append('test3');
+            txt.show();
 
             confirm.bind('click', function (e) {
                 e.preventDefault();

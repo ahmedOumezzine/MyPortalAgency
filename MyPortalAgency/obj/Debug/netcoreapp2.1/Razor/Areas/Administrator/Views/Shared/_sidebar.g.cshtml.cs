@@ -70,7 +70,7 @@ namespace AspNetCore
                             ");
             EndContext();
             BeginContext(917, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de23e96473934379ab24e89b5e7f65fd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c83514c56624e0fbc4de30234ba18f9", async() => {
                 BeginContext(974, 165, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>About Us</span>\r\n                            ");
                 EndContext();
@@ -92,7 +92,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(1234, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ddc4f23cac124a4fa429f2a903a6cdc8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e2ac663886e4bba984627818198c1ac", async() => {
                 BeginContext(1291, 165, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>Services</span>\r\n                            ");
                 EndContext();
@@ -114,7 +114,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(1551, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de10cb5195144bd28a576da34219ebbb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "831651034e1246f28dd2c904095cf86d", async() => {
                 BeginContext(1608, 166, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>Portfilio</span>\r\n                            ");
                 EndContext();
@@ -136,7 +136,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(1869, 224, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "522ffe4db5b74c1bad6fd05832dfc369", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e7d30b4ebf54715a62261f8a1655b0d", async() => {
                 BeginContext(1926, 163, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>Career</span>\r\n                            ");
                 EndContext();
@@ -176,7 +176,7 @@ namespace AspNetCore
                             ");
             EndContext();
             BeginContext(2630, 225, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d2be38a58df4bac9dbbf96267bd7625", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87d6c41799aa4a78b6ac07444046b639", async() => {
                 BeginContext(2687, 164, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>General</span>\r\n                            ");
                 EndContext();
@@ -198,7 +198,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(2946, 231, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0e839efe03d4610b7c066e38522ceaa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb6d7eaa9bba495b82df798823a2fd42", async() => {
                 BeginContext(3003, 170, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>List Messages</span>\r\n                            ");
                 EndContext();
@@ -220,7 +220,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(3268, 231, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73eb37724cad445580d3398539dc1d90", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96b14941b2f347ef880fbe6cb91dc9a5", async() => {
                 BeginContext(3325, 170, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>List Supports</span>\r\n                            ");
                 EndContext();
@@ -260,7 +260,7 @@ namespace AspNetCore
                             ");
             EndContext();
             BeginContext(4034, 225, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da2e87fdf37d4d189886d59f97c73cf0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f28e93fa7543416ea281f9da83423e3f", async() => {
                 BeginContext(4091, 164, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>General</span>\r\n                            ");
                 EndContext();
@@ -282,7 +282,7 @@ namespace AspNetCore
             WriteLiteral("\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(4350, 230, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "270e9ed65ec349ef9513c5edf4477768", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27e6d4a2b0ad436ba93e047aa7f369b5", async() => {
                 BeginContext(4407, 169, true);
                 WriteLiteral("\r\n                                <i class=\"fas fa-home\" aria-hidden=\"true\"></i>\r\n                                <span>Theme Option</span>\r\n                            ");
                 EndContext();
