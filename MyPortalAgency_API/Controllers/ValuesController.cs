@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using MyPortalAgency_API.Models;
 
 namespace MyPortalAgency_API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<PageViewModel> PageViewModel = new List<PageViewModel>() {
+                new Models.PageViewModel() { Title="aa",Description="bb",Type="cc"},
+                new Models.PageViewModel() { Title="aa2",Description="bb2",Type="cc2"}
+            };
+           var result=  JsonConvert.SerializeObject(PageViewModel);
+            return result;
         }
 
         // GET api/values/5

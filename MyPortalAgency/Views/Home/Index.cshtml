@@ -3,23 +3,47 @@
 }
 @section scripts{ 
 <script>
-    $.ajax({
-        type: 'GET',
-        url: 'https://localhost:44380/values',
-        data: { postVar1: 'theValue1', postVar2: 'theValue2' },
-        beforeSend: function () {
-            // this is where we append a loading image
-            //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
-        },
-        success: function (data) {
-            // successful request; do something with the data
+    class User {
+ 
+    }
+    //var User = {
+    //    Title: "",
+    //    Description: "",
+    //    Type : ""
+    //}
+    function call(callobj) {
+        $.ajax({
+            type: 'GET',
+            url: 'https://localhost:44380/values',
+            data: { postVar1: 'theValue1', postVar2: 'theValue2' },
 
-        },
-        error: function () {
-            // failed request; give feedback to user
-            // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
-        }
-    });
+            beforeSend: function () {
+                // this is where we append a loading image
+                //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
+            },
+            success: function (data) {
+                // successful request; do something with the data
+                var Objects = new Array();
+                console.log(data);
+                obj = JSON.parse(data);
+                Object.keys(obj).forEach(function (key) {
+                    var result = Object.assign(callobj, obj[key]);
+                    Objects.push(result);
+                });
+
+                console.log(Objects);
+                return Objects;
+
+
+                //console.log(arr);
+            },
+            error: function () {
+                // failed request; give feedback to user
+                // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
+            }
+        });
+    }
+   
 </script>
 }
 
