@@ -68,6 +68,10 @@ namespace MyPortalAgency_API
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            services.AddCors();
+
+
             // ===== Add MVC ========
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -101,8 +105,9 @@ namespace MyPortalAgency_API
             app.UseHttpsRedirection();
             app.UseAuthentication();
 
-      
-        
+
+             app.UseCors(option => option.WithOrigins("https://localhost:44389" ));
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

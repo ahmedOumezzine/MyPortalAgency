@@ -1,6 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@section scripts{ 
+<script>
+    $.ajax({
+        type: 'GET',
+        url: 'https://localhost:44380/values',
+        data: { postVar1: 'theValue1', postVar2: 'theValue2' },
+        beforeSend: function () {
+            // this is where we append a loading image
+            //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
+        },
+        success: function (data) {
+            // successful request; do something with the data
+
+        },
+        error: function () {
+            // failed request; give feedback to user
+            // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
+        }
+    });
+</script>
+}
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
