@@ -15,7 +15,7 @@ namespace MyPortalAgency_API.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<string> Get()
+        public ActionResult<string> Gets()
         {
             List<PageViewModel> PageViewModel = new List<PageViewModel>() {
                 new Models.PageViewModel() { Title="aa",Description="bb",Type="cc"},
@@ -26,10 +26,12 @@ namespace MyPortalAgency_API.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet]
+        public ActionResult<string> Get([FromQuery] int id)
         {
-            return "value";
+            PageViewModel PageViewModel = new Models.PageViewModel() { Title = "aa", Description = "bb", Type = "cc" };
+            var result = JsonConvert.SerializeObject(PageViewModel);
+            return result;
         }
 
         // POST api/values

@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace MyPortalAgency_API.Controllers
 {
@@ -30,6 +31,13 @@ namespace MyPortalAgency_API.Controllers
             _configuration = configuration;
         }
 
+        [HttpGet]
+        [Route("Login2")]
+        public async Task<object> Login2([FromQuery] LoginModel model)
+        {
+            var result = JsonConvert.SerializeObject(model);
+            return result;
+        }
         [HttpPost]
         [Route("Login")]
         public async Task<object> Login([FromBody] LoginModel model)

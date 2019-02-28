@@ -19,11 +19,24 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace MyPortalAgency_API
 {
     public class Startup
     {
+        void ConfigurePolicy(CorsPolicyBuilder builder)
+        {
+            builder
+                .WithOrigins("http://localhost", "http://localhost:80", "http://localhost:8080", "http://localhost:3000", "http://localhost:3001")
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+        }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -43,15 +56,13 @@ namespace MyPortalAgency_API
 
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
-            services
-                .AddAuthentication(options =>
+            services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-                })
-                .AddJwtBearer(cfg =>
+                }).AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
@@ -70,7 +81,10 @@ namespace MyPortalAgency_API
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins, ConfigurePolicy);
+            });
 
 
             // ===== Add MVC ========
@@ -107,7 +121,7 @@ namespace MyPortalAgency_API
             app.UseAuthentication();
 
 
-             app.UseCors(option => option.WithOrigins("https://localhost:44389" ));
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseMvc(routes =>
             {
