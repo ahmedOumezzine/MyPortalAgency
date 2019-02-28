@@ -11,47 +11,68 @@
     <meta name="author" content="okler.net">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="Front\img\favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="Front\img\apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/Front\img\favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="~/Front\img\apple-touch-icon.png">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
-    @*<link rel="stylesheet" href="~/css/StyleFronts.min.css" />*@
+    @*<link rel="stylesheet" href="~/css/Style~/Fronts.min.css" />*@
     <!-- Vendor CSS -->
-        <link rel="stylesheet" href="Front\vendor\bootstrap\css\bootstrap.min.css">
-        <link rel="stylesheet" href="Front\vendor\fontawesome-free\css\all.min.css">
-        <link rel="stylesheet" href="Front\vendor\animate\animate.min.css">
-        <link rel="stylesheet" href="Front\vendor\simple-line-icons\css\simple-line-icons.min.css">
-        <link rel="stylesheet" href="Front\vendor\owl.carousel\assets\owl.carousel.min.css">
-        <link rel="stylesheet" href="Front\vendor\owl.carousel\assets\owl.theme.default.min.css">
-        <link rel="stylesheet" href="Front\vendor\magnific-popup\magnific-popup.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\bootstrap\css\bootstrap.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\fontawesome-free\css\all.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\animate\animate.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\simple-line-icons\css\simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\owl.carousel\assets\owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\owl.carousel\assets\owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Front\vendor\magnific-popup\magnific-popup.min.css">
 
 
 
-        <!-- Theme CSS -->
-        <link rel="stylesheet" href="Front\css\theme.css">
-        <link rel="stylesheet" href="Front\css\theme-elements.css">
-        <link rel="stylesheet" href="Front\css\theme-blog.css">
-        <link rel="stylesheet" href="Front\css\theme-shop.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/Front\css\theme.css">
+    <link rel="stylesheet" href="~/Front\css\theme-elements.css">
+    <link rel="stylesheet" href="~/Front\css\theme-blog.css">
+    <link rel="stylesheet" href="~/Front\css\theme-shop.css">
 
-        <!-- Current Page CSS -->
-        <link rel="stylesheet" href="Front\vendor\rs-plugin\css\settings.css">
-        <link rel="stylesheet" href="Front\vendor\rs-plugin\css\layers.css">
-        <link rel="stylesheet" href="Front\vendor\rs-plugin\css\navigation.css">
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="~/Front\vendor\rs-plugin\css\settings.css">
+    <link rel="stylesheet" href="~/Front\vendor\rs-plugin\css\layers.css">
+    <link rel="stylesheet" href="~/Front\vendor\rs-plugin\css\navigation.css">
 
-        <!-- Demo CSS -->
-        <!-- Skin CSS -->
-        <link rel="stylesheet" href="Front\css\skins\default.css">
+    <!-- Demo CSS -->
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="~/Front\css\skins\default.css">
 
 
-        <!-- Theme Custom CSS -->
-        <link rel="stylesheet" href="Front\css\custom.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/Front\css\custom.css">
+    <script src="~/Front\vendor\jquery\jquery.min.js"></script>
 
-        <!-- Head Libs -->
-        <script src="Front\vendor\modernizr\modernizr.min.js"></script>
+    @RenderSection("Styles", required: false)
+
+    <!-- Head Libs -->
+    <script src="~/Front\vendor\modernizr\modernizr.min.js"></script>
+
+
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - RootPortal</title>*@
+
+    @*<environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>*@
+</head>
+<body>
     <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
         <div class="header-body">
             <div class="header-container container">
@@ -60,7 +81,7 @@
                         <div class="header-row">
                             <div class="header-logo">
                                 <a href="index.html">
-                                    <img alt="Porto" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="Front/img/logo-default.png">
+                                    <img alt="Porto" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="~/Front/img/logo-default.png">
                                 </a>
                             </div>
                         </div>
@@ -78,64 +99,13 @@
                                                     <li class="dropdown-submenu">
                                                         <a class="dropdown-item" href="#">Classic</a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="index-classic.html" data-thumb-preview="Front/img/previews/preview-classic.jpeg">Classic - Original</a></li>
-                                                            <li><a class="dropdown-item" href="index-classic-color.html" data-thumb-preview="Front/img/previews/preview-classic-color.jpeg">Classic - Color</a></li>
-                                                            <li><a class="dropdown-item" href="index-classic-light.html" data-thumb-preview="Front/img/previews/preview-classic-light.jpeg">Classic - Light</a></li>
-                                                            <li><a class="dropdown-item" href="index-classic-video.html" data-thumb-preview="Front/img/previews/preview-classic-video.jpeg">Classic - Video</a></li>
-                                                            <li><a class="dropdown-item" href="index-classic-video-light.html" data-thumb-preview="Front/img/previews/preview-classic-video-light.jpeg">Classic - Video - Light</a></li>
+                                                            <li><a class="dropdown-item" href="index-classic.html" data-thumb-preview="~/Front/img/previews/preview-classic.jpeg">Classic - Original</a></li>
+                                                            <li><a class="dropdown-item" href="index-classic-color.html" data-thumb-preview="~/Front/img/previews/preview-classic-color.jpeg">Classic - Color</a></li>
+                                                            <li><a class="dropdown-item" href="index-classic-light.html" data-thumb-preview="~/Front/img/previews/preview-classic-light.jpeg">Classic - Light</a></li>
+                                                            <li><a class="dropdown-item" href="index-classic-video.html" data-thumb-preview="~/Front/img/previews/preview-classic-video.jpeg">Classic - Video</a></li>
+                                                            <li><a class="dropdown-item" href="index-classic-video-light.html" data-thumb-preview="~/Front/img/previews/preview-classic-video-light.jpeg">Classic - Video - Light</a></li>
                                                         </ul>
-                                                    </li>
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item" href="#">Corporate <span class="tip tip-dark">hot</span></a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="index-corporate.html" data-thumb-preview="Front/img/previews/preview-corporate.jpeg">Corporate - Version 1</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-2.html" data-thumb-preview="Front/img/previews/preview-corporate-2.jpeg">Corporate - Version 2</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-3.html" data-thumb-preview="Front/img/previews/preview-corporate-3.jpeg">Corporate - Version 3</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-4.html" data-thumb-preview="Front/img/previews/preview-corporate-4.jpeg">Corporate - Version 4</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-5.html" data-thumb-preview="Front/img/previews/preview-corporate-5.jpeg">Corporate - Version 5</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-6.html" data-thumb-preview="Front/img/previews/preview-corporate-6.jpeg">Corporate - Version 6</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-7.html" data-thumb-preview="Front/img/previews/preview-corporate-7.jpeg">Corporate - Version 7</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-8.html" data-thumb-preview="Front/img/previews/preview-corporate-8.jpeg">Corporate - Version 8</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-9.html" data-thumb-preview="Front/img/previews/preview-corporate-9.jpeg">Corporate - Version 9</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-10.html" data-thumb-preview="Front/img/previews/preview-corporate-10.jpeg">Corporate - Version 10</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-11.html" data-thumb-preview="Front/img/previews/preview-corporate-11.jpeg">Corporate - Version 11</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-12.html" data-thumb-preview="Front/img/previews/preview-corporate-12.jpeg">Corporate - Version 12</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-13.html" data-thumb-preview="Front/img/previews/preview-corporate-13.jpeg">Corporate - Version 13</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-14.html" data-thumb-preview="Front/img/previews/preview-corporate-14.jpeg">Corporate - Version 14</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-15.html" data-thumb-preview="Front/img/previews/preview-corporate-15.jpeg">Corporate - Version 15</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-16.html" data-thumb-preview="Front/img/previews/preview-corporate-16.jpeg">Corporate - Version 16</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-17.html" data-thumb-preview="Front/img/previews/preview-corporate-17.jpeg">Corporate - Version 17</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-18.html" data-thumb-preview="Front/img/previews/preview-corporate-18.jpeg">Corporate - Version 18</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-19.html" data-thumb-preview="Front/img/previews/preview-corporate-19.jpeg">Corporate - Version 19</a></li>
-                                                            <li><a class="dropdown-item" href="index-corporate-20.html" data-thumb-preview="Front/img/previews/preview-corporate-20.jpeg">Corporate - Version 20</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item" href="#">Portfolio</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="index-portfolio.html" data-thumb-preview="Front/img/previews/preview-portfolio.jpeg">Portfolio - Version 1</a></li>
-                                                            <li><a class="dropdown-item" href="index-portfolio-2.html" data-thumb-preview="Front/img/previews/preview-portfolio-2.jpeg">Portfolio - Version 2</a></li>
-                                                            <li><a class="dropdown-item" href="index-portfolio-3.html" data-thumb-preview="Front/img/previews/preview-portfolio-3.jpeg">Portfolio - Version 3</a></li>
-                                                            <li><a class="dropdown-item" href="index-portfolio-4.html" data-thumb-preview="Front/img/previews/preview-portfolio-4.jpeg">Portfolio - Version 4</a></li>
-                                                            <li><a class="dropdown-item" href="index-portfolio-5.html" data-thumb-preview="Front/img/previews/preview-portfolio-5.jpeg">Portfolio - Version 5</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item" href="#">Blog</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="index-blog.html" data-thumb-preview="Front/img/previews/preview-blog.jpeg">Blog - Version 1</a></li>
-                                                            <li><a class="dropdown-item" href="index-blog-2.html" data-thumb-preview="Front/img/previews/preview-blog-2.jpeg">Blog - Version 2</a></li>
-                                                            <li><a class="dropdown-item" href="index-blog-3.html" data-thumb-preview="Front/img/previews/preview-blog-3.jpeg">Blog - Version 3</a></li>
-                                                            <li><a class="dropdown-item" href="index-blog-4.html" data-thumb-preview="Front/img/previews/preview-blog-4.jpeg">Blog - Version 4</a></li>
-                                                            <li><a class="dropdown-item" href="index-blog-5.html" data-thumb-preview="Front/img/previews/preview-blog-5.jpeg">Blog - Version 5</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item" href="#">One Page</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="index-one-page.html" data-thumb-preview="Front/img/previews/preview-one-page.jpeg">One Page Original</a></li>
-                                                        </ul>
-                                                    </li>
+                                                    </li> 
                                                 </ul>
                                             </li>
                                             <li class="dropdown dropdown-mega">
@@ -971,165 +941,35 @@
         </div>
     </header>
 
-
-
-    @*<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - RootPortal</title>*@
-
-    @*<environment include="Development">
-            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
-        </environment>
-        <environment exclude="Development">
-            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        </environment>*@
-</head>
-<body>
-    @*<nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">RootPortal</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>*@
-
-    @*<partial name="_CookieConsentPartial" />*@
+ 
 
 
     <div>
         @RenderBody()
     </div>
-    <div style="height:500px;">
-
-    </div>
-    <hr />
-    <footer id="footer" class="border-0" style="background: url('Front/img/parallax/parallax-8.jpeg'); background-size:cover; background-position: 0 100%;">
-        <div class="container py-4">
-            <div class="row justify-content-md-center py-5 mt-3">
-                <div class="col-md-12 col-lg-3 d-flex align-items-center justify-content-center justify-content-lg-start mb-5 mb-lg-0">
-                    <a href="index.html"><img src="Front\img\logo-dark.png" alt="Logo" class="img-fluid" style="max-width: 110px;"></a>
-                </div>
-                <div class="col-md-6 col-lg-2 text-center text-lg-left mb-5 mb-lg-0">
-                    <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Pages</h5>
-                    <ul class="list list-unstyled">
-                        <li class="mb-1"><a href="page-services.html" class="link-hover-style-1"> Our Services</a></li>
-                        <li class="mb-1"><a href="about-us.html" class="link-hover-style-1"> About Us</a></li>
-                        <li class="mb-1"><a href="contact-us.html" class="link-hover-style-1"> Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-lg-2 text-center text-lg-left mb-5 mb-lg-0">
-                    <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Links</h5>
-                    <ul class="list list-unstyled">
-                        <li class="mb-1"><a href="page-faq.html" class="link-hover-style-1"> FAQ's</a></li>
-                        <li class="mb-1"><a href="sitemap.html" class="link-hover-style-1"> Sitemap</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-lg-5 text-center text-lg-left">
-                    <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Newsletter</h5>
-                    <div class="alert alert-success d-none" id="newsletterSuccess">
-                        <strong>Success!</strong> You've been added to our email list.
-                    </div>
-                    <div class="alert alert-danger d-none" id="newsletterError"></div>
-                    <form id="newsletterForm" action="Front/php/newsletter-subscribe.php" method="POST" class="mb-3 mb-md-0">
-                        <div class="input-group input-group-rounded">
-                            <input class="form-control form-control-sm bg-light" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
-                            <span class="input-group-append">
-                                <button class="btn btn-light text-color-dark" type="submit"><strong>GO!</strong></button>
-                            </span>
-                        </div>
-                    </form>
-                    <p class="mt-3 mb-0 text-center text-lg-left">
-                        <i class="fab fa-whatsapp text-color-primary"></i><span class="text-color-light opacity-7 pl-2">(800) 123-4567</span>
-                        <i class="far fa-envelope text-color-primary ml-4"></i><a href="mailto:mail@example.com" class="opacity-7 pl-2 text-color-light">mail@example.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright footer-copyright-style-2 background-transparent footer-top-light-border">
-            <div class="container py-2">
-                <div class="row py-4">
-                    <div class="col d-flex align-items-center justify-content-center mb-4 mb-lg-0">
-                        <p>© Copyright 2019. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    @*<footer>
-            <p>&copy; 2019 - RootPortal</p>
-        </footer>*@
-
-
-    @*<environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>*@
-    <!-- Vendor -->
-    <script src="Front\vendor\jquery\jquery.min.js"></script>
-        <script src="Front\vendor\jquery.appear\jquery.appear.min.js"></script>
-        <script src="Front\vendor\jquery.easing\jquery.easing.min.js"></script>
-        <script src="Front\vendor\jquery.cookie\jquery.cookie.min.js"></script>
-        @*<script src="Front\master\style-switcher\style.switcher.js" id="styleSwitcherScript" data-base-path="" data-skin-src=""></script>*@
-        <script src="Front\vendor\popper\umd\popper.min.js"></script>
-        <script src="Front\vendor\bootstrap\js\bootstrap.min.js"></script>
-        <script src="Front\vendor\common\common.min.js"></script>
-        <script src="Front\vendor\jquery.validation\jquery.validate.min.js"></script>
-        <script src="Front\vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js"></script>
-        <script src="Front\vendor\jquery.gmap\jquery.gmap.min.js"></script>
-        <script src="Front\vendor\jquery.lazyload\jquery.lazyload.min.js"></script>
-        <script src="Front\vendor\isotope\jquery.isotope.min.js"></script>
-        <script src="Front\vendor\owl.carousel\owl.carousel.min.js"></script>
-        <script src="Front\vendor\magnific-popup\jquery.magnific-popup.min.js"></script>
-        <script src="Front\vendor\vide\jquery.vide.min.js"></script>
-        <script src="Front\vendor\vivus\vivus.min.js"></script>
-
-        <!-- Theme Base, Components and Settings -->
-        <script src="Front\js\theme.js"></script>
-
-        <!-- Current Page Vendor and Views -->
-        <script src="Front\vendor\rs-plugin\js\jquery.themepunch.tools.min.js"></script>
-        <script src="Front\vendor\rs-plugin\js\jquery.themepunch.revolution.min.js"></script>
-
-
-        <!-- Theme Initialization Files -->
-        <script src="Front\js\theme.init.js"></script>
-    @*<script type="text/javascript" src="~/javascript/ScriptFront.min.js"></script>*@
+  
  
+    <script src="~/Front\vendor\popper\umd\popper.min.js"></script>
+    <script src="~/Front\vendor\bootstrap\js\bootstrap.min.js"></script>
+     <script src="~/Front\vendor\jquery.validation\jquery.validate.min.js"></script>
+    <script src="~/Front\vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js"></script>
+    <script src="~/Front\vendor\jquery.gmap\jquery.gmap.min.js"></script>
+     <script src="~/Front\vendor\isotope\jquery.isotope.min.js"></script>
+    <script src="~/Front\vendor\owl.carousel\owl.carousel.min.js"></script>
+    <script src="~/Front\vendor\magnific-popup\jquery.magnific-popup.min.js"></script>
+  
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/Front\js\theme.js"></script>
+
+    <!-- Current Page Vendor and Views -->
+    <script src="~/Front\vendor\rs-plugin\js\jquery.themepunch.tools.min.js"></script>
+    <script src="~/Front\vendor\rs-plugin\js\jquery.themepunch.revolution.min.js"></script>
+
+
+    <!-- Theme Initialization Files -->
+    <script src="~/Front\js\theme.init.js"></script>
+    @*<script type="text/javascript" src="~/javascript/Script~/Front.min.js"></script>*@
+
 
     @RenderSection("Scripts", required: false)
 </body>

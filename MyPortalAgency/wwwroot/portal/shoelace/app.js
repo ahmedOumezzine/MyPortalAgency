@@ -83,11 +83,12 @@ function _init() {
     });
 
     $("body").css("min-height", $(window).height() - 90);
-    $(".htmlpage").css("min-height", $(window).height() - 160);
+    $(".htmlpage").css("min-height", '100%');
+    $(".htmlpage").css("min-width", '100%');
      //$(".htmlpage").sortable({connectWith: ".lyrow", opacity: .35, handle: ".drag"});
    $(".htmlpage, .htmlpage .column").sortable({ connectWith: ".column", opacity: .35, handle: ".drag" });
     $(".sidebar-nav .lyrow").draggable({
-        connectToSortable: ".htmlpage", helper: "clone", handle: ".drag", drag: function (e, t) {
+        connectToSortable: ".htmlpage", helper: "clone", handle: ".preview" , drag: function (e, t) {
             t.helper.width('100%'),
                 t.helper.height('60%') 
         }, stop: function (e, t) {
