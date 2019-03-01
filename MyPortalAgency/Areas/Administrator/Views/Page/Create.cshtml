@@ -22,7 +22,44 @@
         .lyrow {
             margin-bottom: 10px;
         }
+        .sidebar-nav .remove, .sidebar-nav .clone, .sidebar-nav .drag {
+            display: none !important;
+        }
+        .owl-stage {
+            height: 220px;
+        }
+        .owl-carousel .owl-item .lyrow {
+            padding: 10px;
+            border: 1px solid transparent;
+            background: #fff;
+        }
+            .owl-carousel .owl-item .lyrow :hover {
+                border: 1px solid #0088cc;
+            }
+        .owl-carousel .owl-item .box {
+            padding: 10px;
+            border: 1px solid transparent;
+        }
+            .owl-carousel .owl-item .box :hover {
+                border: 1px solid #0088cc;
+            }
+        .owl-carousel .owl-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
+    <script>
+ 
+        $(".owl-item .lyrow").draggable({
+            connectToSortable: ".htmlpage", helper: "clone", handle: ".preview", drag: function (e, t) {
+               // t.helper.width('100%'),
+                //    t.helper.height('60%')
+            }, stop: function (e, t) {
+                $(".htmlpage .column").sortable({ opacity: .35, connectWith: ".column" })
+            }
+        });
+    </script>
 }
 
 @{
@@ -30,844 +67,1240 @@
 
 }
 
+    <section class="section section-height-3 bg-color-light border-0 my-0">
+        <div class="container container-lg">
+            <div class="row align-items-center">
+                <div class="col center">
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="tabs tabs-bottom tabs-center tabs-simple mb-3">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item active">
+                                        <a class="nav-link show active" href="#tabHeaders" data-toggle="tab"><i class="fa fa fa-th"> </i>&nbsp; Grid System</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tabSideHeaders" data-toggle="tab"><i class="fa fa-html5"></i>&nbsp; Html Elements</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tabPageHeaders" data-toggle="tab"><i class="fa fa-html5"></i>&nbsp; Test Elements</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tabfooters" data-toggle="tab">Footers</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane mb-0 active show" id="tabHeaders">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-9 text-center">
+                                                <div class="owl-carousel owl-theme owl-loaded ">
+                                                    <div class="owl-stage-outer rows " id="estRows">
+                                                        <div class="owl-stage ">
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs">
+                                                                        <i class="fa-remove fa"></i>
+                                                                    </a>
+                                                                    <a class="drag btn btn-default btn-xs">
+                                                                        <i class="fa fa-arrows"></i>
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-info btn-xs clone">
+                                                                        <i class="fa fa-clone"></i>
+                                                                    </a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_12.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class=" view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-12 column"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_6_6.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-6 column"></div>
+                                                                            <div class="col-md-6 column"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_8_4.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-8 column"></div>
+                                                                            <div class="col-md-4 column"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_4_8.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-4 column"></div>
+                                                                            <div class="col-md-8 column"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_4_4_4.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-4 column"></div>
+                                                                            <div class="col-md-4 column"></div>
+                                                                            <div class="col-md-4 column"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                                                    <div class="preview">
+                                                                        <img src="~/portal/keditor/snippets/preview/row_3_3_3_3.png" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="col-md-3 column"></div>
+                                                                            <div class="col-md-3 column"></div>
+                                                                            <div class="col-md-3 column"></div>
+                                                                            <div class="col-md-3 column"></div>
+                                                                        </div>
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane mb-0" id="tabSideHeaders">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-9 text-center">
+                                                <div class="owl-carousel owl-theme owl-loaded ">
+                                                    <div class="owl-stage-outer boxes " id="elmBase">
+                                                        <div class="owl-stage ">
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="box box-element" data-type="paragraph">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                                                    <div class="preview">
+                                                                        <i class="fa fa-font fa-2x"></i>
+                                                                        <div class="element-desc">Paragraph</div>
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="box box-element" data-type="image">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                                                    <div class="preview">
+                                                                        <i class="fa fa-picture-o fa-2x"></i>
+                                                                        <div class="element-desc">Image</div>
+                                                                    </div>
+                                                                    <div class="view"> <img src="http://placehold.it/350x150" class="img-responsive" title="default title" /> </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="box box-element" data-type="button">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                                                    <div class="preview">
+                                                                        <i class="fa  fa-hand-pointer-o fa-2x"></i>
+                                                                        <div class="element-desc">Button</div>
+                                                                    </div>
+                                                                    <div class="view"> <a class="btn btn-default" href="#">Click Me !</a> </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="box box-element" data-type="youtube">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                                                    <div class="preview">
+                                                                        <i class="fa  fa fa-youtube-play  fa-2x"></i>
+                                                                        <div class="element-desc">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="view">
+                                                                        <iframe class="img-responsive" src="https://www.youtube.com/embed/WIJaD623dy0" frameborder="0" allowfullscreen data-url=""></iframe>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="box box-element" data-type="code">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                                                    <div class="preview">
+                                                                        <i class="fa">< ></i>
+                                                                        <div class="element-desc">Code</div>
+                                                                    </div>
+                                                                    <div class="view"> i'm html code, change me </div>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane mb-0" id="tabPageHeaders">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-9 text-center">
+                                                <div class="owl-carousel owl-theme owl-loaded ">
+                                                    <div class="owl-stage-outer rows " id="estRows">
+                                                        <div class="owl-stage ">
+                                                            <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs">
+                                                                        <i class="fa-remove fa"></i>
+                                                                    </a>
+                                                                    <a class="drag btn btn-default btn-xs">
+                                                                        <i class="fa fa-arrows"></i>
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-info btn-xs clone">
+                                                                        <i class="fa fa-clone"></i>
+                                                                    </a>
+                                                                    <div class="preview">
+                                                                        <img src="~/images/teams.PNG" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class=" view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="container py-4">
+
+                                                                                <ul class="nav nav-pills sort-source sort-source-style-3 justify-content-center" data-sort-id="team" data-option-key="filter">
+                                                                                    <li class="nav-item active" data-option-value="*"><a class="nav-link text-1 text-uppercase active" href="#">Show All</a></li>
+                                                                                    <li class="nav-item" data-option-value=".leadership"><a class="nav-link text-1 text-uppercase" href="#">Leadership</a></li>
+                                                                                    <li class="nav-item" data-option-value=".marketing"><a class="nav-link text-1 text-uppercase" href="#">Marketing</a></li>
+                                                                                    <li class="nav-item" data-option-value=".development"><a class="nav-link text-1 text-uppercase" href="#">Development</a></li>
+                                                                                    <li class="nav-item" data-option-value=".design"><a class="nav-link text-1 text-uppercase" href="#">Design</a></li>
+                                                                                </ul>
+
+                                                                                <div class="sort-destination-loader mt-4 pt-2 sort-destination-loader-loaded">
+                                                                                    <div class="row team-list sort-destination" data-sort-id="team" data-filter="*" style="position: relative; height: 882px;">
+
+                                                                                        <div class="col-12 col-sm-6 col-lg-3 isotope-item marketing" style="position: absolute; left: 285px; top: 0px;">
+                                                                                            <span class="thumb-info thumb-info-hide-wrapper-bg mb-4">
+                                                                                                <span class="thumb-info-wrapper">
+                                                                                                    <a href="about-me.html">
+                                                                                                        <img src="~/Front/img/team/team-2.jpeg" class="img-fluid" alt="">
+                                                                                                        <span class="thumb-info-title">
+                                                                                                            <span class="thumb-info-inner">Jessica Doe</span>
+                                                                                                            <span class="thumb-info-type">Marketing</span>
+                                                                                                        </span>
+                                                                                                    </a>
+                                                                                                </span>
+                                                                                                <span class="thumb-info-caption">
+                                                                                                    <span class="thumb-info-caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</span>
+                                                                                                    <span class="thumb-info-social-icons mb-4">
+                                                                                                        <a href="http://www.twitter.com"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                                                                                                        <a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </div>
 
 
 
-<body class="edit">
-  
-    <div class="">
-        <div class="row">
+
+
+
+                                                                                    </div>
+
+                                                                                    <div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                              <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs">
+                                                                        <i class="fa-remove fa"></i>
+                                                                    </a>
+                                                                    <a class="drag btn btn-default btn-xs">
+                                                                        <i class="fa fa-arrows"></i>
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-info btn-xs clone">
+                                                                        <i class="fa fa-clone"></i>
+                                                                    </a>
+                                                                    <div class="preview">
+                                                                        <img src="~/images/teams2.PNG" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class=" view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="container py-4">
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-7 order-2">
+                                                                                        <div class="overflow-hidden">
+                                                                                            <h2 class="text-color-dark font-weight-bold text-8 mb-0 pt-0 mt-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="300" style="animation-delay: 300ms;">John Doe</h2>
+                                                                                        </div>
+                                                                                        <div class="overflow-hidden mb-3">
+                                                                                            <p class="font-weight-bold text-primary text-uppercase mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="500" style="animation-delay: 500ms;">CEO</p>
+                                                                                        </div>
+                                                                                        <p class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam <a href="#">vehicula</a> sit amet enim ac sagittis. Curabitur eget leo varius, elementum mauris eget, egestas quam. Donec ante risus, dapibus sed lectus non, lacinia vestibulum nisi. Morbi vitae augue quam. Nullam ac laoreet libero.</p>
+                                                                                        <p class="pb-3 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800" style="animation-delay: 800ms;">Consectetur adipiscing elit. Aliquam iaculis sit amet enim ac sagittis. Curabitur eget leo varius, elementum mauris eget, egestas quam.</p>
+                                                                                        <hr class="solid my-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
+                                                                                        <div class="row align-items-center appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000" style="animation-delay: 1000ms;">
+                                                                                            <div class="col-lg-6">
+                                                                                                <a href="#" class="btn btn-modern btn-dark mt-3">Get In Touch</a>
+                                                                                                <a href="#" class="btn btn-modern btn-primary mt-3">Hire Me</a>
+                                                                                            </div>
+                                                                                            <div class="col-sm-6 text-lg-right my-4 my-lg-0">
+                                                                                                <strong class="text-uppercase text-1 mr-3 text-dark">follow me</strong>
+                                                                                                <ul class="social-icons float-lg-right">
+                                                                                                    <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                                                                    <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                                                                                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" style="animation-delay: 100ms;">
+                                                                                        <img src="~/Front/img/team/team-1.jpeg" class="img-fluid" alt="">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                             <div class="owl-item sidebar-nav">
+                                                                <div class="lyrow">
+                                                                    <a href="#close" class="remove btn btn-danger btn-xs">
+                                                                        <i class="fa-remove fa"></i>
+                                                                    </a>
+                                                                    <a class="drag btn btn-default btn-xs">
+                                                                        <i class="fa fa-arrows"></i>
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-info btn-xs clone">
+                                                                        <i class="fa fa-clone"></i>
+                                                                    </a>
+                                                                    <div class="preview">
+                                                                        <img src="~/images/text.PNG" style=" height:20%" />
+                                                                    </div>
+                                                                    <div class=" view">
+                                                                        <div class="row clearfix">
+                                                                            <div class="container pb-1">
+
+                                                                                <div class="row pt-4">
+                                                                                    <div class="col">
+                                                                                        <div class="overflow-hidden mb-3">
+                                                                                            <h2 class="font-weight-bold text-8 mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" style="animation-delay: 100ms;">
+                                                                                                We Are Here To Help You
+                                                                                            </h2>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-10">
+                                                                                        <div class="overflow-hidden">
+                                                                                            <p class="lead mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                                                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non <span class="alternative-font">metus.</span> pulvinar. Sociis natoque penatibus et magnis dis parturient montes.
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-lg-2 appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="500" style="animation-delay: 500ms;">
+                                                                                        <a href="#" class="btn btn-modern btn-dark mt-1">Get a Quote!</a>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane mb-0" id="tabfooters">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-9 text-center">
+                                                tabfooters
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <div role="main" class="main">
+        <div class="edit">
+
             <div class="">
-                <div class="sidebar-nav">
-                    <ul class="nav nav-list ">
-                        <li class="nav-header"> <i class="fa fa fa-th"> </i>&nbsp; Grid System </li>
-                        <li class="rows" id="estRows" style="  ">
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs">
-                                <i class="fa-remove fa"></i></a> 
-                                <a class="drag btn btn-default btn-xs">
-                                <i class="fa fa-arrows"></i></a>
-                                <a href="#" class="btn btn-info btn-xs clone">
-                                <i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_12.png" style=" height:20%" />       
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-12 column"></div>
+                <div class="row">
+                    @*<div class="">
+                        <div class="sidebar-nav">
+                            <ul class="nav nav-list ">
+                                <li class="nav-header"> <i class="fa fa fa-th"> </i>&nbsp; Grid System </li>
+                                <li class="rows" id="estRows" style="  ">
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs">
+                                        <i class="fa-remove fa"></i></a>
+                                        <a class="drag btn btn-default btn-xs">
+                                        <i class="fa fa-arrows"></i></a>
+                                        <a href="#" class="btn btn-info btn-xs clone">
+                                        <i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_12.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-12 column"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_6_6.png" style=" height:20%" />       
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-6 column"></div>
-                                        <div class="col-md-6 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_6_6.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-6 column"></div>
+                                                <div class="col-md-6 column"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_8_4.png" style=" height:20%" />      
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-8 column"></div>
-                                        <div class="col-md-4 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_8_4.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-8 column"></div>
+                                                <div class="col-md-4 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_4_8.png" style=" height:20%" />
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4 column"></div>
-                                        <div class="col-md-8 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_4_8.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-4 column"></div>
+                                                <div class="col-md-8 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <i class="fa fa-hand-pointer-o fa-2x"></i>
-                                    <div class="element-desc">3 9</div>
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-3 column"></div>
-                                        <div class="col-md-9 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <i class="fa fa-hand-pointer-o fa-2x"></i>
+                                            <div class="element-desc">3 9</div>
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-3 column"></div>
+                                                <div class="col-md-9 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <input type="text" value="9 3" class="form-control">
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-9 column"></div>
-                                        <div class="col-md-3 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <input type="text" value="9 3" class="form-control">
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-9 column"></div>
+                                                <div class="col-md-3 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_4_4_4.png" style=" height:20%" />
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4 column"></div>
-                                        <div class="col-md-4 column"></div>
-                                        <div class="col-md-4 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_4_4_4.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-4 column"></div>
+                                                <div class="col-md-4 column"></div>
+                                                <div class="col-md-4 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <div class="lyrow">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
-                                <div class="preview">
-                                    <img src="~/portal/keditor/snippets/preview/row_3_3_3_3.png" style=" height:20%" />
-                                </div>
-                                <div class="view">
-                                    <div class="row clearfix">
-                                        <div class="col-md-3 column"></div>
-                                        <div class="col-md-3 column"></div>
-                                        <div class="col-md-3 column"></div>
-                                        <div class="col-md-3 column"></div>
+                                    <div class="lyrow">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa-remove fa"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <a href="#" class="btn btn-info btn-xs clone"><i class="fa fa-clone"></i></a>
+                                        <div class="preview">
+                                            <img src="~/portal/keditor/snippets/preview/row_3_3_3_3.png" style=" height:20%" />
+                                        </div>
+                                        <div class="view">
+                                            <div class="row clearfix">
+                                                <div class="col-md-3 column"></div>
+                                                <div class="col-md-3 column"></div>
+                                                <div class="col-md-3 column"></div>
+                                                <div class="col-md-3 column"></div>
+                                            </div>
+                                            <br>
+                                        </div>
                                     </div>
-                                    <br>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="nav nav-list">
-                        <li class="nav-header"><i class="fa fa-html5"></i>&nbsp; Html Elements </li>
-                        <li class="boxes" id="elmBase">
-                            <!-- <div class="box box-element" data-type="header"> <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings"  href="#" ><i class="fa fa-gear"></i></a> </span> <div class="preview"> <i class="fa fa-header fa-2x"></i> <div class="element-desc">header</div> </div> <div class="view"> <h2>HEADER TITLE</h2> </div> </div> -->
-                            <div class="box box-element" data-type="paragraph">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa fa-font fa-2x"></i>
-                                    <div class="element-desc">Paragraph</div>
-                                </div>
-                                <div class="view">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
-                            <div class="box box-element" data-type="image">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa fa-picture-o fa-2x"></i>
-                                    <div class="element-desc">Image</div>
-                                </div>
-                                <div class="view"> <img src="http://placehold.it/350x150" class="img-responsive" title="default title" /> </div>
-                            </div>
-                            <div class="box box-element" data-type="button">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa  fa-hand-pointer-o fa-2x"></i>
-                                    <div class="element-desc">Button</div>
-                                </div>
-                                <div class="view"> <a class="btn btn-default" href="#">Click Me !</a> </div>
-                            </div>
-                            <div class="box box-element" data-type="youtube">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa  fa fa-youtube-play  fa-2x"></i>
-                                    <div class="element-desc">
-                                    </div>
-                                </div>
-                                <div class="view">
-                                    <iframe class="img-responsive" src="https://www.youtube.com/embed/WIJaD623dy0" frameborder="0" allowfullscreen data-url=""></iframe>
-                                </div>
-                            </div>
-                            <!-- Vimeo -->
-                            <div class="box box-element" data-type="youtube">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa  fa-vimeo-square fa-2x"></i>
-                                    <div class="element-desc">Vimeo</div>
-                                </div>
-                                <div class="view">
-                                    <iframe class="img-responsive" src="https://player.vimeo.com/video/137463767?byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="box box-element" data-type="map">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa  fa-map-o fa-2x"></i>
-                                    <div class="element-desc">Map</div>
-                                </div>
-                                <div class="view">
-                                    <iframe class="img-responsive" src="https://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed" frameborder="0" allowfullscreen data-url=""></iframe>
-                                </div>
-                            </div>
-                            <div class="box box-element" data-type="code">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa">< ></i>
-                                    <div class="element-desc">Code</div>
-                                </div>
-                                <div class="view"> i'm html code, change me </div>
-                            </div>
-                            <div class="box box-element" data-type="code2">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa">< ></i>
-                                    <div class="element-desc">Code222</div>
-                                </div>
-                                <div class="view"> i'm html code222, change me </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="nav nav-list">
-                        <li class="nav-header"><i class="fa fa-html5"></i>&nbsp; Test Elements </li>
-                        <li class="boxes" id="elmBase">
-                            <!-- <div class="box box-element" data-type="header"> <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings"  href="#" ><i class="fa fa-gear"></i></a> </span> <div class="preview"> <i class="fa fa-header fa-2x"></i> <div class="element-desc">header</div> </div> <div class="view"> <h2>HEADER TITLE</h2> </div> </div> -->
-                            <div class="box box-element" data-type="code3">
-                                <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
-                                <div class="preview">
-                                    <i class="fa fa-font fa-2x"></i>
-                                    <div class="element-desc">Paragraph</div>
-                                </div>
-                                <div class="view">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="htmlpage"> </div>
-        </div>
-        <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="download" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><i class='fa fa-save'></i>&nbsp;Save as </h4>
-                    </div>
-                    <div class="modal-body" id='sourceCode'>
-                        <textarea id="src" rows="10"></textarea>
-                        <textarea id="model" rows="10" class="form-control"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class='fa fa-close'></i>&nbsp;Close</button>
-                        <button type="button" class="btn btn-success" id="srcSave"><i class='fa fa-save'></i>&nbsp;Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="preferences" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="preferencesTitle"></h4>
-                    </div>
-                    <div class="modal-body" id="preferencesContent">
-                        <!--<iframe src="media-popup.php" style="width:100%; height:300px ; display:none;" frameborder="0" ></iframe>-->
-                        <div id="mediagallery" style="overflow:auto;height:400px; display:none">
-                            <!-- <input type="text" name="nome" value="" placeholder="name of images"><input class="btn btn-info" type="submit" value="search">  -->
-                            <div id="contenutoimmagini"></div>
-                            <form enctype="multipart/form-data" id="form-id">
-                                <input name="nomefile" type="file" />
-                                <input class="button" type="button" value="Upload" />
-                            </form>
-                            <progress value="0"></progress>
+                                </li>
+                            </ul>
                             <br>
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $('.button').click(function () {
-                                        var formx = document.getElementById('form-id');
-                                        var formData = new FormData(formx);
-                                        $.ajax({
-                                            url: 'media-popup.php?op=newfile',
-                                            type: 'POST',
-                                            xhr: function () {
-                                                var myXhr = $.ajaxSettings.xhr();
-                                                if (myXhr.upload) {
-                                                    myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+                            <ul class="nav nav-list">
+                                <li class="nav-header"><i class="fa fa-html5"></i>&nbsp; Html Elements </li>
+                                <li class="boxes" id="elmBase">
+                                    <!-- <div class="box box-element" data-type="header"> <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings"  href="#" ><i class="fa fa-gear"></i></a> </span> <div class="preview"> <i class="fa fa-header fa-2x"></i> <div class="element-desc">header</div> </div> <div class="view"> <h2>HEADER TITLE</h2> </div> </div> -->
+                                    <div class="box box-element" data-type="paragraph">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa fa-font fa-2x"></i>
+                                            <div class="element-desc">Paragraph</div>
+                                        </div>
+                                        <div class="view">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="box box-element" data-type="image">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa fa-picture-o fa-2x"></i>
+                                            <div class="element-desc">Image</div>
+                                        </div>
+                                        <div class="view"> <img src="http://placehold.it/350x150" class="img-responsive" title="default title" /> </div>
+                                    </div>
+                                    <div class="box box-element" data-type="button">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa  fa-hand-pointer-o fa-2x"></i>
+                                            <div class="element-desc">Button</div>
+                                        </div>
+                                        <div class="view"> <a class="btn btn-default" href="#">Click Me !</a> </div>
+                                    </div>
+                                    <div class="box box-element" data-type="youtube">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa  fa fa-youtube-play  fa-2x"></i>
+                                            <div class="element-desc">
+                                            </div>
+                                        </div>
+                                        <div class="view">
+                                            <iframe class="img-responsive" src="https://www.youtube.com/embed/WIJaD623dy0" frameborder="0" allowfullscreen data-url=""></iframe>
+                                        </div>
+                                    </div>
+                                    <!-- Vimeo -->
+                                    <div class="box box-element" data-type="youtube">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa  fa-vimeo-square fa-2x"></i>
+                                            <div class="element-desc">Vimeo</div>
+                                        </div>
+                                        <div class="view">
+                                            <iframe class="img-responsive" src="https://player.vimeo.com/video/137463767?byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="box box-element" data-type="map">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa  fa-map-o fa-2x"></i>
+                                            <div class="element-desc">Map</div>
+                                        </div>
+                                        <div class="view">
+                                            <iframe class="img-responsive" src="https://maps.google.com/maps?q=12.927923,77.627108&z=15&output=embed" frameborder="0" allowfullscreen data-url=""></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="box box-element" data-type="code">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa">< ></i>
+                                            <div class="element-desc">Code</div>
+                                        </div>
+                                        <div class="view"> i'm html code, change me </div>
+                                    </div>
+                                    <div class="box box-element" data-type="code2">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa">< ></i>
+                                            <div class="element-desc">Code222</div>
+                                        </div>
+                                        <div class="view"> i'm html code222, change me </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <br>
+                            <ul class="nav nav-list">
+                                <li class="nav-header"><i class="fa fa-html5"></i>&nbsp; Test Elements </li>
+                                <li class="boxes" id="elmBase">
+                                    <!-- <div class="box box-element" data-type="header"> <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings"  href="#" ><i class="fa fa-gear"></i></a> </span> <div class="preview"> <i class="fa fa-header fa-2x"></i> <div class="element-desc">header</div> </div> <div class="view"> <h2>HEADER TITLE</h2> </div> </div> -->
+                                    <div class="box box-element" data-type="code3">
+                                        <a href="#close" class="remove btn btn-danger btn-xs"><i class="fa fa-remove"></i></a> <a class="drag btn btn-default btn-xs"><i class="fa fa-arrows"></i></a> <span class="configuration"> <a class="btn btn-xs btn-warning settings" href="#"><i class="fa fa-gear"></i></a> </span>
+                                        <div class="preview">
+                                            <i class="fa fa-font fa-2x"></i>
+                                            <div class="element-desc">Paragraph</div>
+                                        </div>
+                                        <div class="view">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>*@
+                    <div class="htmlpage"> </div>
+                </div>
+                <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="download" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title"><i class='fa fa-save'></i>&nbsp;Save as </h4>
+                            </div>
+                            <div class="modal-body" id='sourceCode'>
+                                <textarea id="src" rows="10"></textarea>
+                                <textarea id="model" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class='fa fa-close'></i>&nbsp;Close</button>
+                                <button type="button" class="btn btn-success" id="srcSave"><i class='fa fa-save'></i>&nbsp;Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="preferences" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="preferencesTitle"></h4>
+                            </div>
+                            <div class="modal-body" id="preferencesContent">
+                                <!--<iframe src="media-popup.php" style="width:100%; height:300px ; display:none;" frameborder="0" ></iframe>-->
+                                <div id="mediagallery" style="overflow:auto;height:400px; display:none">
+                                    <!-- <input type="text" name="nome" value="" placeholder="name of images"><input class="btn btn-info" type="submit" value="search">  -->
+                                    <div id="contenutoimmagini"></div>
+                                    <form enctype="multipart/form-data" id="form-id">
+                                        <input name="nomefile" type="file" />
+                                        <input class="button" type="button" value="Upload" />
+                                    </form>
+                                    <progress value="0"></progress>
+                                    <br>
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $('.button').click(function () {
+                                                var formx = document.getElementById('form-id');
+                                                var formData = new FormData(formx);
+                                                $.ajax({
+                                                    url: 'media-popup.php?op=newfile',
+                                                    type: 'POST',
+                                                    xhr: function () {
+                                                        var myXhr = $.ajaxSettings.xhr();
+                                                        if (myXhr.upload) {
+                                                            myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+                                                        }
+                                                        return myXhr;
+                                                    },
+                                                    success: completeHandler,
+                                                    error: errorHandler,
+                                                    data: formData,
+                                                    cache: false,
+                                                    contentType: false,
+                                                    processData: false
+                                                });
+
+                                                function completeHandler() {
+                                                    loadimages();
                                                 }
-                                                return myXhr;
-                                            },
-                                            success: completeHandler,
-                                            error: errorHandler,
-                                            data: formData,
-                                            cache: false,
-                                            contentType: false,
-                                            processData: false
+
+                                                function errorHandler() {
+                                                    alert('errore caricamento');
+                                                }
+
+                                                function progressHandlingFunction(e) {
+                                                    if (e.lengthComputable) {
+                                                        $('progress').attr({
+                                                            value: e.loaded,
+                                                            max: e.total
+                                                        });
+                                                    }
+                                                }
+                                            });
+                                            loadimages();
                                         });
 
-                                        function completeHandler() {
-                                            loadimages();
+                                        function inserisci(elemento) {
+                                            var link = $(elemento);
+                                            var image = link.data('image');
+                                            $('#img-url').val(image);
+                                            $('#imgContent').children('img').attr('src', image);
+                                            $('#mediagallery').slideUp();
+                                            $('#thepref').slideDown();
                                         }
 
-                                        function errorHandler() {
-                                            alert('errore caricamento');
+                                        function loadimages() {
+                                            //var request = $.ajax({
+                                            //    url: "media-popup.php?immagini=1",
+                                            //    method: "POST",
+                                            //    data: {
+                                            //        nome: ''
+                                            //    },
+                                            //    dataType: "html"
+                                            //});
+                                            //request.done(function (msg) {
+                                            //    $("#contenutoimmagini").html(msg);
+                                            //});
                                         }
-
-                                        function progressHandlingFunction(e) {
-                                            if (e.lengthComputable) {
-                                                $('progress').attr({
-                                                    value: e.loaded,
-                                                    max: e.total
-                                                });
-                                            }
-                                        }
-                                    });
-                                    loadimages();
-                                });
-
-                                function inserisci(elemento) {
-                                    var link = $(elemento);
-                                    var image = link.data('image');
-                                    $('#img-url').val(image);
-                                    $('#imgContent').children('img').attr('src', image);
-                                    $('#mediagallery').slideUp();
-                                    $('#thepref').slideDown();
-                                }
-
-                                function loadimages() {
-                                    //var request = $.ajax({
-                                    //    url: "media-popup.php?immagini=1",
-                                    //    method: "POST",
-                                    //    data: {
-                                    //        nome: ''
-                                    //    },
-                                    //    dataType: "html"
-                                    //});
-                                    //request.done(function (msg) {
-                                    //    $("#contenutoimmagini").html(msg);
-                                    //});
-                                }
-                            </script>
-                            <a class="btn btn-info" href="javascript:;" onclick="$('#mediagallery').hide();$('#thepref').show();">Return to image settings</a>
-                        </div>
-                        <div id="thepref">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#Settings" aria-controls="Settings" role="tab" data-toggle="tab">Settings</a></li>
-                                <li role="presentation"><a href="#CellSettings" aria-controls="profile" role="tab" data-toggle="tab">Cell settings</a></li>
-                                <li role="presentation"><a href="#RowSettings" aria-controls="messages" role="tab" data-toggle="tab">Row settings</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="Settings">
-                                    <div class="panel panel-body">
-                                        <div id="ht" style="display: none;">
-                                            <textarea id="html5editorLite"></textarea>
-                                        </div>
-                                        <!-- fine header -->
-                                        <div id="text" style="display: none;">
-                                            <textarea id="html5editor"></textarea>
-                                        </div>
-                                        <div id="image" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div id="imgContent"> </div> <a class="btn btn-default form-control" href="#" id="gallery"><i class="icon-upload-alt"></i>&nbsp;Browse ...</a>
+                                    </script>
+                                    <a class="btn btn-info" href="javascript:;" onclick="$('#mediagallery').hide();$('#thepref').show();">Return to image settings</a>
+                                </div>
+                                <div id="thepref">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#Settings" aria-controls="Settings" role="tab" data-toggle="tab">Settings</a></li>
+                                        <li role="presentation"><a href="#CellSettings" aria-controls="profile" role="tab" data-toggle="tab">Cell settings</a></li>
+                                        <li role="presentation"><a href="#RowSettings" aria-controls="messages" role="tab" data-toggle="tab">Row settings</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="Settings">
+                                            <div class="panel panel-body">
+                                                <div id="ht" style="display: none;">
+                                                    <textarea id="html5editorLite"></textarea>
                                                 </div>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <label for="img-url">Url :</label>
-                                                        <input type="text" value="" id="img-url" class="form-control" />
-                                                    </div>
-                                                    <!-- <div class="form-group"> <label for="img-url">Click Url:</label> <input type="text" value="" id="img-clickurl" class="form-control" /> </div> -->
+                                                <!-- fine header -->
+                                                <div id="text" style="display: none;">
+                                                    <textarea id="html5editor"></textarea>
+                                                </div>
+                                                <div id="image" style="display:none">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-5">
+                                                            <div id="imgContent"> </div> <a class="btn btn-default form-control" href="#" id="gallery"><i class="icon-upload-alt"></i>&nbsp;Browse ...</a>
+                                                        </div>
+                                                        <div class="col-md-7">
                                                             <div class="form-group">
-                                                                <label for="img-width">Width :</label>
-                                                                <input type="text" value="" id="img-width" class="form-control" />
+                                                                <label for="img-url">Url :</label>
+                                                                <input type="text" value="" id="img-url" class="form-control" />
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
+                                                            <!-- <div class="form-group"> <label for="img-url">Click Url:</label> <input type="text" value="" id="img-clickurl" class="form-control" /> </div> -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="img-width">Width :</label>
+                                                                        <input type="text" value="" id="img-width" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="img-height">Height :</label>
+                                                                        <input type="text" value="" id="img-height" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="form-group">
-                                                                <label for="img-height">Height :</label>
-                                                                <input type="text" value="" id="img-height" class="form-control" />
+                                                                <label for="img-title">Title : </label>
+                                                                <input type="text" value="" id="img-title" class="form-control" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="img-rel">Rel :</label>
+                                                                <input type="text" value="" id="img-rel" class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="img-title">Title : </label>
-                                                        <input type="text" value="" id="img-title" class="form-control" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="img-rel">Rel :</label>
-                                                        <input type="text" value="" id="img-rel" class="form-control" />
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- fine settaggi immagine -->
-                                        <div id="youtube" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div id="youtube-video"> </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="video-url">Video id :</label>
-                                                            <input type="text" value="" id="video-url" class="form-control" />
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="video-width">Width :</label>
-                                                                    <input type="text" value="" id="video-width" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="video-height">Height :</label>
-                                                                    <input type="text" value="" id="video-height" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- fine settagio youtube -->
-                                        <div id="map" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div id="map-content"> </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="address">Latitude :</label>
-                                                            <input type="text" value="" id="latitude" class="form-control" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="address">Longitude :</label>
-                                                            <input type="text" value="" id="longitude" class="form-control" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="address">Zoom :</label>
-                                                            <input type="text" value="" id="zoom" class="form-control" />
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="img-width">Width :</label>
-                                                                    <input type="text" value="" id="map-width" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="img-height">Height :</label>
-                                                                    <input type="text" value="" id="map-height" class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="buttons" style="display:none">
-                                            <div id="buttonContainer"></div>
-                                            <br>
-                                            <div class="form-group">
-                                                <label> Label : </label>
-                                                <input type="text" class="form-control" id="buttonLabel" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label> Href : </label>
-                                                <input type="text" class="form-control" id="buttonHref" />
-                                            </div> <span class="btn-group btn-group-xs">
-                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Styles <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-default">Default</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-primary">Primary</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-success">Success</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-info">Info</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-warning">Warning</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-danger">Danger</a></li>
-                                                    <li class=""><a href="#" class="btnpropa" rel="btn-link">Link</a></li>
-                                                </ul>
-                                            </span> <span class="btn-group btn-group-xs">
-                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Size <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li class=""><a href="#" class="btnpropb" rel="btn-lg">Large</a></li>
-                                                    <li class=""><a href="#" class="btnpropb" rel="btn-default">Default</a></li>
-                                                    <li class=""><a href="#" class="btnpropb" rel="btn-sm">Small</a></li>
-                                                    <li class=""><a href="#" class="btnpropb" rel="btn-xs">Mini</a></li>
-                                                </ul>
-                                            </span> <span class="btn-group btn-group-xs"> <a class="btn btn-xs btn-default btnprop" href="#" rel="btn-block">Block</a> <a class="btn btn-xs btn-default btnprop" href="#" rel="active">Active</a> <a class="btn btn-xs btn-default btnprop" href="#" rel="disabled">Disabled</a> </span>
-                                            <br>
-                                            <br>
-                                            <div class="form-group">
-                                                <label> Custom width / height / font-size / padding top : </label>
-                                                <br> <span class="btn-group"> <input type="text" id="custombtnwidth" style="width:20%" /> <input type="text" id="custombtnheight" style="width:20%" /> <input type="text" id="custombtnfont" style="width:20%" /> <input type="text" id="custombtnpaddingtop" style="width:20%" /> </span>
-                                            </div>
-                                            <!-- <div class="form-group"> <label> Align:  </label> <br> <span class="btn-group"> <select id="btnalign"> <option value="center">center</option> <option value="left">left</option> <option value="right">right</option> </select> </span> </div> -->
-                                            <div class="form-group">
-                                                <label>Custom background color :</label>
-                                                <input type="text" class="form-control" id="colbtn" />
-                                                <select id="colorselectorbtn">
-                                                    <option value="1" data-value="1" data-color="#A0522D">sienna</option>
-                                                    <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
-                                                    <option value="3" data-value="3" data-color="#FF4500">orangered</option>
-                                                    <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
-                                                    <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
-                                                    <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
-                                                    <option value="7" data-value="7" data-color="#FFD700">gold</option>
-                                                    <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
-                                                    <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
-                                                    <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
-                                                    <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
-                                                    <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
-                                                    <option value="13" data-value="13" data-color="#DC143C">crimson</option>
-                                                    <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
-                                                    <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
-                                                    <option value="16" data-value="16" data-color="#000000">black</option>
-                                                    <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
-                                                    <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
-                                                    <option value="19" data-value="19" data-color="#efefef">marroncino</option>
-                                                    <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
-                                                    <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
-                                                    <option value="22" data-value="22" data-color="#263459">blu scuro</option>
-                                                    <option value="23" data-value="23" data-color="#ffffff">bianco</option>
-                                                </select>
-                                                <script type="text/javascript">
-                                                    //$('#colorselectorbtn').colorselector({
-                                                    //    callback: function (value, color, title) {
-                                                    //        $("#colbtn").val(color);
-                                                    //    }
-                                                    //});
-                                                </script>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Custom text color :</label>
-                                                <input type="text" class="form-control" id="colbtncol" />
-                                                <select id="colorselectorbtncol">
-                                                    <option value="1" data-value="1" data-color="#A0522D">sienna</option>
-                                                    <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
-                                                    <option value="3" data-value="3" data-color="#FF4500">orangered</option>
-                                                    <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
-                                                    <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
-                                                    <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
-                                                    <option value="7" data-value="7" data-color="#FFD700">gold</option>
-                                                    <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
-                                                    <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
-                                                    <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
-                                                    <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
-                                                    <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
-                                                    <option value="13" data-value="13" data-color="#DC143C">crimson</option>
-                                                    <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
-                                                    <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
-                                                    <option value="16" data-value="16" data-color="#000000">black</option>
-                                                    <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
-                                                    <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
-                                                    <option value="19" data-value="19" data-color="#efefef">marroncino</option>
-                                                    <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
-                                                    <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
-                                                    <option value="22" data-value="22" data-color="#263459">blu scuro</option>
-                                                    <option value="23" data-value="23" data-color="#ffffff">bianco</option>
-                                                </select>
-                                                <script type="text/javascript">
-                                                    //$('#colorselectorbtncol').colorselector({
-                                                    //    callback: function (value, color, title) {
-                                                    //        $("#colbtncol").val(color);
-                                                    //    }
-                                                    //});
-                                                </script>
-                                            </div>
-                                        </div>
-                                        <!-- fine bottone-->
-                                        <div id="code" style="display:none"> </div>
-                                        <div id="code3" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div id="imgContent3"> </div> <a class="btn btn-default form-control" href="#" id="gallery"><i class="icon-upload-alt"></i>&nbsp;Browse ...</a>
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <label for="img-url">Url :</label>
-                                                        <input type="text" value="" id="img-url3" class="form-control" />
-                                                    </div>
-                                                    <!-- <div class="form-group"> <label for="img-url">Click Url:</label> <input type="text" value="" id="img-clickurl" class="form-control" /> </div> -->
+                                                <!-- fine settaggi immagine -->
+                                                <div id="youtube" style="display:none">
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="img-width">Width :</label>
-                                                                <input type="text" value="" id="img-width" class="form-control" />
-                                                            </div>
+                                                        <div class="col-md-12">
+                                                            <div id="youtube-video"> </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <form>
+                                                                <div class="form-group">
+                                                                    <label for="video-url">Video id :</label>
+                                                                    <input type="text" value="" id="video-url" class="form-control" />
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="video-width">Width :</label>
+                                                                            <input type="text" value="" id="video-width" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="video-height">Height :</label>
+                                                                            <input type="text" value="" id="video-height" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- fine settagio youtube -->
+                                                <div id="map" style="display:none">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div id="map-content"> </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <form>
+                                                                <div class="form-group">
+                                                                    <label for="address">Latitude :</label>
+                                                                    <input type="text" value="" id="latitude" class="form-control" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="address">Longitude :</label>
+                                                                    <input type="text" value="" id="longitude" class="form-control" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="address">Zoom :</label>
+                                                                    <input type="text" value="" id="zoom" class="form-control" />
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="img-width">Width :</label>
+                                                                            <input type="text" value="" id="map-width" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="img-height">Height :</label>
+                                                                            <input type="text" value="" id="map-height" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="buttons" style="display:none">
+                                                    <div id="buttonContainer"></div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label> Label : </label>
+                                                        <input type="text" class="form-control" id="buttonLabel" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label> Href : </label>
+                                                        <input type="text" class="form-control" id="buttonHref" />
+                                                    </div> <span class="btn-group btn-group-xs">
+                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Styles <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-default">Default</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-primary">Primary</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-success">Success</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-info">Info</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-warning">Warning</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-danger">Danger</a></li>
+                                                            <li class=""><a href="#" class="btnpropa" rel="btn-link">Link</a></li>
+                                                        </ul>
+                                                    </span> <span class="btn-group btn-group-xs">
+                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Size <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class=""><a href="#" class="btnpropb" rel="btn-lg">Large</a></li>
+                                                            <li class=""><a href="#" class="btnpropb" rel="btn-default">Default</a></li>
+                                                            <li class=""><a href="#" class="btnpropb" rel="btn-sm">Small</a></li>
+                                                            <li class=""><a href="#" class="btnpropb" rel="btn-xs">Mini</a></li>
+                                                        </ul>
+                                                    </span> <span class="btn-group btn-group-xs"> <a class="btn btn-xs btn-default btnprop" href="#" rel="btn-block">Block</a> <a class="btn btn-xs btn-default btnprop" href="#" rel="active">Active</a> <a class="btn btn-xs btn-default btnprop" href="#" rel="disabled">Disabled</a> </span>
+                                                    <br>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label> Custom width / height / font-size / padding top : </label>
+                                                        <br> <span class="btn-group"> <input type="text" id="custombtnwidth" style="width:20%" /> <input type="text" id="custombtnheight" style="width:20%" /> <input type="text" id="custombtnfont" style="width:20%" /> <input type="text" id="custombtnpaddingtop" style="width:20%" /> </span>
+                                                    </div>
+                                                    <!-- <div class="form-group"> <label> Align:  </label> <br> <span class="btn-group"> <select id="btnalign"> <option value="center">center</option> <option value="left">left</option> <option value="right">right</option> </select> </span> </div> -->
+                                                    <div class="form-group">
+                                                        <label>Custom background color :</label>
+                                                        <input type="text" class="form-control" id="colbtn" />
+                                                        <select id="colorselectorbtn">
+                                                            <option value="1" data-value="1" data-color="#A0522D">sienna</option>
+                                                            <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
+                                                            <option value="3" data-value="3" data-color="#FF4500">orangered</option>
+                                                            <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
+                                                            <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
+                                                            <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
+                                                            <option value="7" data-value="7" data-color="#FFD700">gold</option>
+                                                            <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
+                                                            <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
+                                                            <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
+                                                            <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
+                                                            <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
+                                                            <option value="13" data-value="13" data-color="#DC143C">crimson</option>
+                                                            <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
+                                                            <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
+                                                            <option value="16" data-value="16" data-color="#000000">black</option>
+                                                            <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
+                                                            <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
+                                                            <option value="19" data-value="19" data-color="#efefef">marroncino</option>
+                                                            <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
+                                                            <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
+                                                            <option value="22" data-value="22" data-color="#263459">blu scuro</option>
+                                                            <option value="23" data-value="23" data-color="#ffffff">bianco</option>
+                                                        </select>
+                                                        <script type="text/javascript">
+                                                                                                                //$('#colorselectorbtn').colorselector({
+                                                                                                                //    callback: function (value, color, title) {
+                                                                                                                //        $("#colbtn").val(color);
+                                                                                                                //    }
+                                                                                                                //});
+                                                        </script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Custom text color :</label>
+                                                        <input type="text" class="form-control" id="colbtncol" />
+                                                        <select id="colorselectorbtncol">
+                                                            <option value="1" data-value="1" data-color="#A0522D">sienna</option>
+                                                            <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
+                                                            <option value="3" data-value="3" data-color="#FF4500">orangered</option>
+                                                            <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
+                                                            <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
+                                                            <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
+                                                            <option value="7" data-value="7" data-color="#FFD700">gold</option>
+                                                            <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
+                                                            <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
+                                                            <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
+                                                            <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
+                                                            <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
+                                                            <option value="13" data-value="13" data-color="#DC143C">crimson</option>
+                                                            <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
+                                                            <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
+                                                            <option value="16" data-value="16" data-color="#000000">black</option>
+                                                            <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
+                                                            <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
+                                                            <option value="19" data-value="19" data-color="#efefef">marroncino</option>
+                                                            <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
+                                                            <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
+                                                            <option value="22" data-value="22" data-color="#263459">blu scuro</option>
+                                                            <option value="23" data-value="23" data-color="#ffffff">bianco</option>
+                                                        </select>
+                                                        <script type="text/javascript">
+                                                                                                                //$('#colorselectorbtncol').colorselector({
+                                                                                                                //    callback: function (value, color, title) {
+                                                                                                                //        $("#colbtncol").val(color);
+                                                                                                                //    }
+                                                                                                                //});
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                                <!-- fine bottone-->
+                                                <div id="code" style="display:none"> </div>
+                                                <div id="code3" style="display:none">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <div id="imgContent3"> </div> <a class="btn btn-default form-control" href="#" id="gallery"><i class="icon-upload-alt"></i>&nbsp;Browse ...</a>
+                                                        </div>
+                                                        <div class="col-md-7">
                                                             <div class="form-group">
-                                                                <label for="img-height">Height :</label>
-                                                                <input type="text" value="" id="img-height" class="form-control" />
+                                                                <label for="img-url">Url :</label>
+                                                                <input type="text" value="" id="img-url3" class="form-control" />
+                                                            </div>
+                                                            <!-- <div class="form-group"> <label for="img-url">Click Url:</label> <input type="text" value="" id="img-clickurl" class="form-control" /> </div> -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="img-width">Width :</label>
+                                                                        <input type="text" value="" id="img-width" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="img-height">Height :</label>
+                                                                        <input type="text" value="" id="img-height" class="form-control" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="img-title">Title : </label>
+                                                                <input type="text" value="" id="img-title" class="form-control" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="img-rel">Rel :</label>
+                                                                <input type="text" value="" id="img-rel" class="form-control" />
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="img-title">Title : </label>
-                                                        <input type="text" value="" id="img-title" class="form-control" />
+                                                </div>
+                                                <!-- fine code -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label> ID : </label>
+                                                            <input type="text" readonly class="form-control" id="id" />
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="img-rel">Rel :</label>
-                                                        <input type="text" value="" id="img-rel" class="form-control" />
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="class"> Css class : </label>
+                                                            <input type="text" name="class" id="class" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- fine code -->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label> ID : </label>
-                                                    <input type="text" readonly class="form-control" id="id" />
+                                        <div role="tabpanel" class="tab-pane" id="CellSettings">
+                                            <div class="panel panel-body">
+                                                <table width="100%" cellpadding="5" cellspacing="0" style="border:1px solid #cccccc" id="tabCol">
+                                                    <tr>
+                                                        <td>&nbsp;Margin</td>
+                                                        <td></td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-top" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td bgcolor="#f2f2f2">Padding</td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-top" />
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-left">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-left">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-right">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-right">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-bottom">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-bottom">
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Background color :</label>
+                                                            <input type="text" class="form-control" id="colbg" />
+                                                            <select id="colorselectorbg">
+                                                                <option value="1" data-value="1" data-color="#A0522D">sienna</option>
+                                                                <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
+                                                                <option value="3" data-value="3" data-color="#FF4500">orangered</option>
+                                                                <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
+                                                                <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
+                                                                <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
+                                                                <option value="7" data-value="7" data-color="#FFD700">gold</option>
+                                                                <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
+                                                                <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
+                                                                <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
+                                                                <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
+                                                                <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
+                                                                <option value="13" data-value="13" data-color="#DC143C">crimson</option>
+                                                                <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
+                                                                <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
+                                                                <option value="16" data-value="16" data-color="#000000">black</option>
+                                                                <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
+                                                                <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
+                                                                <option value="19" data-value="19" data-color="#efefef">marroncino</option>
+                                                                <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
+                                                                <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
+                                                                <option value="22" data-value="22" data-color="#263459">blu scuro</option>
+                                                                <option value="23" data-value="23" data-color="#ffffff">bianco</option>
+                                                            </select>
+                                                            <script type="text/javascript">
+                                                                                                                        //$('#colorselectorbg').colorselector({
+                                                                                                                        //    callback: function (value, color, title) {
+                                                                                                                        //        $("#colbg").val(color);
+                                                                                                                        //    }
+                                                                                                                        //});
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <!-- <div class="form-group"> <label>Css class :</label> <input type="text" class="form-control" id="colcss" /> </div> -->
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="RowSettings">
+                                            <div class="panel panel-body">
+                                                <table width="100%" cellpadding="5" cellspacing="0" style="border:1px solid #cccccc" id="tabRow">
+                                                    <tr>
+                                                        <td>&nbsp;Margin</td>
+                                                        <td></td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-top" />
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td bgcolor="#f2f2f2">Padding</td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-top" />
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-left">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-left">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-right">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-right">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td bgcolor="#f2f2f2">
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="padding-bottom">
+                                                        </td>
+                                                        <td bgcolor="#f2f2f2"></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <input type="text" size="4" class="form-control text-center" data-ref="margin-bottom">
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Background color :</label>
+                                                            <input type="text" class="form-control" id="rowbg" />
+                                                            <select id="colorselectorrowbg">
+                                                                <option value="1" data-value="1" data-color="#A0522D">sienna</option>
+                                                                <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
+                                                                <option value="3" data-value="3" data-color="#FF4500">orangered</option>
+                                                                <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
+                                                                <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
+                                                                <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
+                                                                <option value="7" data-value="7" data-color="#FFD700">gold</option>
+                                                                <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
+                                                                <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
+                                                                <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
+                                                                <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
+                                                                <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
+                                                                <option value="13" data-value="13" data-color="#DC143C">crimson</option>
+                                                                <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
+                                                                <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
+                                                                <option value="16" data-value="16" data-color="#000000">black</option>
+                                                                <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
+                                                                <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
+                                                                <option value="19" data-value="19" data-color="#efefef">marroncino</option>
+                                                                <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
+                                                                <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
+                                                                <option value="22" data-value="22" data-color="#263459">blu scuro</option>
+                                                                <option value="23" data-value="23" data-color="#ffffff">bianco</option>
+                                                            </select>
+                                                            <script type="text/javascript">
+                                                                                                                        //$('#colorselectorrowbg').colorselector({
+                                                                                                                        //    callback: function (value, color, title) {
+                                                                                                                        //        $("#rowbg").val(color);
+                                                                                                                        //    }
+                                                                                                                        //});
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Css class :</label>
+                                                            <input type="text" class="form-control" id="rowcss" />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
-                                                    <label for="class"> Css class : </label>
-                                                    <input type="text" name="class" id="class" class="form-control" />
+                                                    <label>Background image :</label>
+                                                    <input type="text" class="form-control" id="rowbgimage" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="CellSettings">
-                                    <div class="panel panel-body">
-                                        <table width="100%" cellpadding="5" cellspacing="0" style="border:1px solid #cccccc" id="tabCol">
-                                            <tr>
-                                                <td>&nbsp;Margin</td>
-                                                <td></td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-top" />
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td bgcolor="#f2f2f2">Padding</td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-top" />
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-left">
-                                                </td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-left">
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-right">
-                                                </td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-right">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-bottom">
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-bottom">
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Background color :</label>
-                                                    <input type="text" class="form-control" id="colbg" />
-                                                    <select id="colorselectorbg">
-                                                        <option value="1" data-value="1" data-color="#A0522D">sienna</option>
-                                                        <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
-                                                        <option value="3" data-value="3" data-color="#FF4500">orangered</option>
-                                                        <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
-                                                        <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
-                                                        <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
-                                                        <option value="7" data-value="7" data-color="#FFD700">gold</option>
-                                                        <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
-                                                        <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
-                                                        <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
-                                                        <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
-                                                        <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
-                                                        <option value="13" data-value="13" data-color="#DC143C">crimson</option>
-                                                        <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
-                                                        <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
-                                                        <option value="16" data-value="16" data-color="#000000">black</option>
-                                                        <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
-                                                        <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
-                                                        <option value="19" data-value="19" data-color="#efefef">marroncino</option>
-                                                        <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
-                                                        <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
-                                                        <option value="22" data-value="22" data-color="#263459">blu scuro</option>
-                                                        <option value="23" data-value="23" data-color="#ffffff">bianco</option>
-                                                    </select>
-                                                    <script type="text/javascript">
-                                                        //$('#colorselectorbg').colorselector({
-                                                        //    callback: function (value, color, title) {
-                                                        //        $("#colbg").val(color);
-                                                        //    }
-                                                        //});
-                                                    </script>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <!-- <div class="form-group"> <label>Css class :</label> <input type="text" class="form-control" id="colcss" /> </div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="RowSettings">
-                                    <div class="panel panel-body">
-                                        <table width="100%" cellpadding="5" cellspacing="0" style="border:1px solid #cccccc" id="tabRow">
-                                            <tr>
-                                                <td>&nbsp;Margin</td>
-                                                <td></td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-top" />
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td bgcolor="#f2f2f2">Padding</td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-top" />
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-left">
-                                                </td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-left">
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-right">
-                                                </td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-right">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td bgcolor="#f2f2f2">
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="padding-bottom">
-                                                </td>
-                                                <td bgcolor="#f2f2f2"></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <input type="text" size="4" class="form-control text-center" data-ref="margin-bottom">
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Background color :</label>
-                                                    <input type="text" class="form-control" id="rowbg" />
-                                                    <select id="colorselectorrowbg">
-                                                        <option value="1" data-value="1" data-color="#A0522D">sienna</option>
-                                                        <option value="2" data-value="2" data-color="#CD5C5C">indianred</option>
-                                                        <option value="3" data-value="3" data-color="#FF4500">orangered</option>
-                                                        <option value="4" data-value="4" data-color="#008B8B">darkcyan</option>
-                                                        <option value="5" data-value="5" data-color="#B8860B">darkgoldenrod</option>
-                                                        <option value="6" data-value="6" data-color="#32CD32">limegreen</option>
-                                                        <option value="7" data-value="7" data-color="#FFD700">gold</option>
-                                                        <option value="8" data-value="8" data-color="#48D1CC">mediumturquoise</option>
-                                                        <option value="9" data-value="9" data-color="#87CEEB">skyblue</option>
-                                                        <option value="10" data-value="10" data-color="#FF69B4">hotpink</option>
-                                                        <option value="11" data-value="11" data-color="#87CEFA">lightskyblue</option>
-                                                        <option value="12" data-value="12" data-color="#6495ED">cornflowerblue</option>
-                                                        <option value="13" data-value="13" data-color="#DC143C">crimson</option>
-                                                        <option value="14" data-value="14" data-color="#FF8C00">darkorange</option>
-                                                        <option value="15" data-value="15" data-color="#C71585">mediumvioletred</option>
-                                                        <option value="16" data-value="16" data-color="#000000">black</option>
-                                                        <option value="17" data-value="17" data-color="#575757">grigio scuro</option>
-                                                        <option value="18" data-value="18" data-color="#f2f2f2">grigio chiaro</option>
-                                                        <option value="19" data-value="19" data-color="#efefef">marroncino</option>
-                                                        <option value="20" data-value="20" data-color="#e7e0d8">marrone</option>
-                                                        <option value="21" data-value="21" data-color="#d7d0c6">marrone scuro</option>
-                                                        <option value="22" data-value="22" data-color="#263459">blu scuro</option>
-                                                        <option value="23" data-value="23" data-color="#ffffff">bianco</option>
-                                                    </select>
-                                                    <script type="text/javascript">
-                                                        //$('#colorselectorrowbg').colorselector({
-                                                        //    callback: function (value, color, title) {
-                                                        //        $("#rowbg").val(color);
-                                                        //    }
-                                                        //});
-                                                    </script>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Css class :</label>
-                                                    <input type="text" class="form-control" id="rowcss" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Background image :</label>
-                                            <input type="text" class="form-control" id="rowbgimage" />
-                                        </div>
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class='fa fa-close'></i>&nbsp;Close</button>
+                                    <button type="button" class="btn btn-primary" id="applyChanges"><i class='fa fa-check'></i>&nbsp;Apply changes</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class='fa fa-close'></i>&nbsp;Close</button>
-                            <button type="button" class="btn btn-primary" id="applyChanges"><i class='fa fa-check'></i>&nbsp;Apply changes</button>
-                        </div>
+                    </div>
+                    <div id="download-layout">
+                        <div class="container"></div>
                     </div>
                 </div>
             </div>
-            <div id="download-layout">
-                <div class="container"></div>
-            </div>
         </div>
-    </div>
-</body>
+</div>
