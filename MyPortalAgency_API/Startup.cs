@@ -50,12 +50,6 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // ===== Add our DbContext ========
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            // ===== Add Identity ========
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
 
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
@@ -91,12 +85,25 @@ namespace MyPortalAgency_API
 
 
             // ===== Add MVC ========
-            services.AddMvc().AddMvcOptions(opt => opt.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
+            services.Configure<MvcJsonOptions>(config =>
+            {
+                config.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+
+            // ===== Add our DbContext ========
+            services.AddDbContext<ApplicationDbContext>(options =>
+                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // ===== Add Identity ========
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+              .AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders();
             // create a Autofac container builder
             var builder = new ContainerBuilder();
             // read service collection to Autofac
             builder.Populate(services);
             // use and configure Autofac
+            builder.RegisterType<ApplicationDbContext>().As<DbContext>();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
             // build the Autofac container
             ApplicationContainer = builder.Build();
@@ -109,6 +116,7 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.  
             app.UseSwagger();
 

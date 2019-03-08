@@ -6,12 +6,13 @@ using AO.AspNetCore.NLib;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyPortalAgency_API.Models;
+using Newtonsoft.Json;
 
 namespace MyPortalAgency_API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize]
+   //[Authorize]
     public class PageViewController : Controller
     {
         private readonly IUnitOfWork repo;
@@ -23,10 +24,10 @@ namespace MyPortalAgency_API.Controllers
 
         [HttpGet]
         [Route("GetPages")]
-        public List<PageViewModel> GetPages()
+        public async Task<object> GetPages([FromQuery] Guid Id)
         {
-            return repo.Repository<PageViewModel>().GetAll();
-
+            var result = repo.Repository<PageViewModel>().FindBy( x=>x.Id ==Id, "PageContentViewModel");
+            return result;
         }
 
         [HttpGet]
