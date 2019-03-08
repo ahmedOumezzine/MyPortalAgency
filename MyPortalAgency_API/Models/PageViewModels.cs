@@ -16,6 +16,8 @@ namespace MyPortalAgency_API.Models
         public String Title { get; set; }
         public String Description { get; set; }
         public String Type { get; set; }
+        public virtual  ICollection<PageContentViewModel> PageContentViewModel { get; set; }
+
     }
     [Table("PageContentView")]
     public class PageContentViewModel  

@@ -20,6 +20,9 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AO.AspNetCore.NLib;
 
 namespace MyPortalAgency_API
 {
@@ -45,7 +48,7 @@ namespace MyPortalAgency_API
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // ===== Add our DbContext ========
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -89,7 +92,19 @@ namespace MyPortalAgency_API
 
             // ===== Add MVC ========
             services.AddMvc().AddMvcOptions(opt => opt.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // create a Autofac container builder
+            var builder = new ContainerBuilder();
+            // read service collection to Autofac
+            builder.Populate(services);
+            // use and configure Autofac
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            // build the Autofac container
+            ApplicationContainer = builder.Build();
+            // creating the IServiceProvider out of the Autofac container
+            return new AutofacServiceProvider(ApplicationContainer);
         }
+        public IContainer ApplicationContainer { get; private set; }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

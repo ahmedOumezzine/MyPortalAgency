@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AO.AspNetCore.NLib;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MyPortalAgency_API.Models;
 
 namespace MyPortalAgency_API.Controllers
 {
@@ -12,9 +14,19 @@ namespace MyPortalAgency_API.Controllers
     [Authorize]
     public class PageViewController : Controller
     {
-        public IActionResult Index()
+        private readonly IUnitOfWork repo;
+
+        public PageViewController(IUnitOfWork repo)
         {
-            return View();
+            this.repo = repo;
+        }
+
+        [HttpGet]
+        [Route("GetPages")]
+        public List<PageViewModel> GetPages()
+        {
+            return repo.Repository<PageViewModel>().GetAll();
+
         }
 
         [HttpGet]
