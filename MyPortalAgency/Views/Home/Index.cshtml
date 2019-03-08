@@ -13,7 +13,8 @@
     //    Description: "",
     //    Type : ""
     //}
-    call('https://localhost:44380/Account/Login2/', 'GET', { email: '2' }, User);
+    var Users= new User();
+    call('https://localhost:44380/PageView/GetPages/', 'GET', { id: '58121566-F3F8-4BAC-841A-E0996798DA0A' }, Users);
 
     function call(url, type, parameters, callobj) {
         var urlstring = "?";
@@ -34,17 +35,17 @@
                },
             success: function (data) {
                 // successful request; do something with the data
-                obj = JSON.parse(data);
-                var result = Object.assign(callobj, obj);
+                //obj = JSON.parse(data);
+                var result = Object.assign(callobj, data);
                 result.StatusCode = 200;
-                return result;
+                callobj = result;
             },
                error: function (xhr, ajaxOptions, thrownError) {
                 // failed request; give feedback to user
                 // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
                    var result = Object.assign(callobj, xhr.responseJSON);
                    result.StatusCode = 400;
-                   return result;
+                   callobj = result;
                }
 
         });
