@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\AboutUs.cs" />
+    <Compile Remove="Models\Careers.cs" />
+    <Compile Remove="Models\ContactUs.cs" />
+    <Compile Remove="Models\Error.cs" />
+    <Compile Remove="Models\Portfolio.cs" />
+    <Compile Remove="Models\Services.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

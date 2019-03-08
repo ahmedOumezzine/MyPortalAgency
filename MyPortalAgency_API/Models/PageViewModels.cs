@@ -1,27 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyPortalAgency_API.Models
 {
-    public class PageViewModel
+    [Table("PageView")]
+    public class PageViewModel 
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
         public String Type { get; set; }
     }
-
-    public class PageContentViewModel
+    [Table("PageContentView")]
+    public class PageContentViewModel  
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
         public String Logo { get; set; }
         public String Type { get; set; }
         public String More { get; set; }
+        public Guid PageViewModelId { get; set; }
+        public virtual PageViewModel PageViewModel { get; set; }
     }
 
-    public class PageContentAlbumViewModel
+    public class PageContentAlbumViewModel : Table
     {
         public String Title { get; set; }
         public String alt { get; set; }
@@ -29,7 +40,7 @@ namespace MyPortalAgency_API.Models
 
     }
 
-    public class PageContentFormViewModel
+    public class PageContentFormViewModel : Table
     {
         public String FieldType { get; set; }
         public String FieldName { get; set; }
@@ -38,7 +49,7 @@ namespace MyPortalAgency_API.Models
         public String FormName { get; set; }
 
     }
-    public class PageContentFormResultViewModel
+    public class PageContentFormResultViewModel : Table
     {
 
         public String Title { get; set; }
