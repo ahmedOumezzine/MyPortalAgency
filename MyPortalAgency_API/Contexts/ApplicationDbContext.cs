@@ -73,6 +73,72 @@ namespace MyPortalAgency_API.Contexts
             builder.Entity<PageContentViewModel>().HasData(PageContentViewModel4);
 
 
+            PageViewModel ContactUs = new PageViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Contact Us",
+                Description = "Feel free to ask for details, don't save any questions!",
+                Type = "ContactUs"
+            };
+            PageContentViewModel ContactUsView = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Address",
+                Description = "1234 Street Name, City Name, United States ",
+                Type = "OurOffice",
+                Logo = "fas fa-map-marker-alt top-6",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
+            PageContentViewModel ContactUsView2 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Phone",
+                Description = " (123) 456-789",
+                Type = "OurOffice",
+                Logo = "fas fa-phone top-6",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
+
+            PageContentViewModel ContactUsView3 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Monday - Friday",
+                Description = " 9am to 5pm",
+                Type = "BusinessHours",
+                Logo = "far fa-clock top-6",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
+            PageContentViewModel ContactUsView4 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Saturday ",
+                Description = "9am to 2pm",
+                Type = "BusinessHours",
+                Logo = "far fa-clock top-6",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
+            PageContentViewModel ContactUsView5 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "We love to Help! ",
+                Description = "Drop your inquiry in the form given on the left side of this page. And within 24 hours, one of our business development executive will reach you for further communication.",
+                Type = "WelovetoHelp",
+                Logo = "",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
+
+            builder.Entity<PageViewModel>().HasData(ContactUs);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView2);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView3);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView4);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView5);
+
 
         }
 
