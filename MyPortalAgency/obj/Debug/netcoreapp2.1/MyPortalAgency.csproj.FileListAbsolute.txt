@@ -158,3 +158,4 @@ C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgenc
 C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\ContactUs\Index.g.cshtml.cs
 C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Portfolio\Index.g.cshtml.cs
 C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Services\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs
