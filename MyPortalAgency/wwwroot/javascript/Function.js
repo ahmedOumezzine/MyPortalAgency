@@ -25,10 +25,11 @@ function call(url, type, parameters, Models) {
             result.StatusCode = 200;
             callobj = result;
             Object.entries(Models).forEach((item, index, arr) => {
-                var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
-                document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);
-
+                    var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
+                    document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);  
             });
+            document.getElementById("Title").innerHTML = render_Title(callobj.title);
+            document.getElementById("Description").innerHTML = render_Description(callobj.description);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             // failed request; give feedback to user
@@ -92,6 +93,23 @@ function render_AboutUs(Obj) {
         <h3>${Obj[0].title}</h3>
         <p>${Obj[0].description}</p>   
     </div>`;
+    return htmlstring;
+}
+
+function render_Description(Obj) {
+    var htmlstring = `<div class="row">
+        <div class="col-md-12 center">
+            <p class="lead">
+                ${Obj}
+            </p>
+            <hr class="tall">
+        </div>
+    </div>`;
+    return htmlstring;
+}
+
+function render_Title(Obj) {
+    var htmlstring = ` <h1 data-title-border=""> ${Obj}</h1>`;
     return htmlstring;
 }
 

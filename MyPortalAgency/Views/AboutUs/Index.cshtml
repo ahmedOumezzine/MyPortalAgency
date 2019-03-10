@@ -10,14 +10,14 @@
                 <div class="col">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Features</li>
+                        <li class="active">About US</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col p-static">
-                    <span class="page-header-title-border visible" style="width: 196.703px;"></span><h1 data-title-border="">Classic Medium</h1>
-
+                    <span class="page-header-title-border visible" style="width: 196.703px;"></span>
+                    <div id="Title"></div>
                 </div>
             </div>
         </div>
@@ -31,20 +31,12 @@
             new Model("PillarsofOurSuccess", "PillarsofOurSuccess", "render_PillarsofOurSuccess"),
             new Model("OurStory", "OurStory", "render_OurStory")
         );
-        call('https://localhost:44380/PageView/GetPages/', 'GET', { id: 'BECDF8D9-26B7-46DF-91AC-DF57035EDC77' }, Models);
+        call('https://localhost:44380/PageView/GetPages/', 'GET', { id: '8CF6EEE4-5F3B-4737-A328-99EBF2B8AB2A' }, Models);
     </script>
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 center">
-            <p class="lead">
-                Shine Infosoft is consistently serving global clients for web &amp; mobile app development services. For all possible technology platforms, we have qualified resources to work with.
-            </p>
-
-            <hr class="tall">
-        </div>
-    </div>
+    <div id="Description"></div> 
 </div>
 
 <div class="container">
@@ -61,7 +53,13 @@
 <div class="container">
     <div id="OurStory"> </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr class="tall">
+        </div>
+    </div>
+</div>
 <div class="container">
     <div id="PillarsofOurSuccess"></div>
     

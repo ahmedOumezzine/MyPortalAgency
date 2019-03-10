@@ -9,19 +9,20 @@
                 <div class="col">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Features</li>
+                        <li class="active">Services</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col p-static">
-                    <span class="page-header-title-border visible" style="width: 196.703px;"></span><h1 data-title-border="">Classic Medium</h1>
-
+                    <span class="page-header-title-border visible" style="width: 196.703px;"></span>
+                    <div id="Title"></div>
                 </div>
             </div>
         </div>
     </section>
 }
+
 @section scripts{
     <script>
         Models.push(
@@ -30,6 +31,9 @@
         call('https://localhost:44380/PageView/GetPages/', 'GET', { id: 'C1DB9326-7687-47AB-8FBE-988F8B0D81DE' }, Models);
     </script>
 }
+    <div class="container">
+        <div id="Description"></div>
+    </div>
 
 <div class="container">
 

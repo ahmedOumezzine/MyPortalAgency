@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var controller = ViewContext.RouteData.Values["Controller"];
+    var action = ViewContext.RouteData.Values["Action"];
+}
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -57,8 +61,14 @@
     </script>
 </head>
 
-<body>
-
+<body class="loading-overlay-showing" data-loading-overlay data-plugin-options="{'hideDelay': 500}">
+    <div class="loading-overlay">
+        <div class="bounce-loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
     <div class="body">
         <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}">
             <div class="header-body border-top-0">
@@ -113,34 +123,34 @@
                                     <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
                                         <nav class="collapse">
                                             <ul class="nav nav-pills" id="mainNav">
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","Home")">
+                                                <li class="dropdown ">
+                                                    <a class="dropdown-item dropdown-toggle @Html.IsSelected("Home",null,"active")" asp-controller="Home" asp-action="Index">
                                                         Home
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","AboutUs")">
+                                                    <a class="dropdown-item dropdown-toggle  @Html.IsSelected("AboutUs",null,"active")" asp-controller="AboutUs" asp-action="Index">
                                                         About Us
                                                     </a>
                                                 </li>
 
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","Services")">
+                                                    <a class="dropdown-item dropdown-toggle  @Html.IsSelected("Services",null,"active")" asp-controller="Services" asp-action="Index">
                                                         Services
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","Portfolio")">
+                                                <li class="dropdown ">
+                                                    <a class="dropdown-item dropdown-toggle @Html.IsSelected("Portfolio",null,"active")" asp-controller="Portfolio" asp-action="Index">
                                                         Portfolio
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","Career")">
+                                                    <a class="dropdown-item dropdown-toggle  @Html.IsSelected("Career",null,"active")" asp-controller="Career" asp-action="Index">
                                                         Career
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="@Url.Action("Index","ContactUs")">
+                                                <li class="dropdown ">
+                                                    <a class="dropdown-item dropdown-toggle @Html.IsSelected("ContactUs",null,"active")" asp-controller="ContactUs" asp-action="Index">
                                                         Contact Us
                                                     </a>
                                                 </li>
@@ -182,7 +192,7 @@
         </div>
 
         <footer id="footer">
-         
+
             <div class="footer-copyright">
                 <div class="container py-2">
                     <div class="row py-4">
@@ -193,13 +203,13 @@
                             <p>© Copyright 2019. All Rights Reserved.</p>
                         </div>
                         <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-                            <nav id="sub-menu">
+                            @*<nav id="sub-menu">
                                 <ul>
                                     <li><i class="fas fa-angle-right"></i><a href="page-faq.html" class="ml-1 text-decoration-none"> FAQ's</a></li>
                                     <li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="ml-1 text-decoration-none"> Sitemap</a></li>
                                     <li><i class="fas fa-angle-right"></i><a href="contact-us.html" class="ml-1 text-decoration-none"> Contact Us</a></li>
                                 </ul>
-                            </nav>
+                            </nav>*@
                         </div>
                     </div>
                 </div>
@@ -237,6 +247,7 @@
     <script src="~/javascript/Function.js"></script>
 
     @RenderSection("Scripts", required: false)
+  
 </body>
 
 </html>
