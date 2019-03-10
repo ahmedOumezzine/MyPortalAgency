@@ -22,6 +22,14 @@
         </div>
     </section>
 }
+@section scripts{
+    <script>
+        Models.push(
+            new Model("OurServices", "OurServices", "render_OurServices"),
+        );
+        call('https://localhost:44380/PageView/GetPages/', 'GET', { id: 'C1DB9326-7687-47AB-8FBE-988F8B0D81DE' }, Models);
+    </script>
+}
 
 <div class="container">
 
@@ -34,58 +42,6 @@
         </div>
     </div>
 </div>
-<section class="section section-tertiary pb-none mb-none">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <h2 class="text-light">Mobile App Development</h2>
-                <p class="text-light">If you’re looking to extend your marketing efforts or have the next great app concept, we’re ready to bring your ideas to life. We also design HTML 5 mobile apps that are not only functional but also responsive, so you know they’ll work beautifully on just about any mobile screen.</p>
-                <p class="text-light">We are providing following services.</p>
-                <ul>
-                    <li class="text-light">Native Mobile App Development (Android, Ios)</li>
-                    <li class="text-light">Hybrid Mobile App Development (Xamarin, React)</li>
-                    <li class="text-light">Mobile Application Re-engineering</li>
-                    <li class="text-light">Existing Mobile App Conversion</li>
-                </ul>
-            </div>
-            <div class="pull-right col-md-4" style="margin-bottom:55px">
-                <img class="img-responsive appear-animation animated fadeInUp appear-animation-visible" src="/img/icons/mobiledevelopment.png" alt="" data-appear-animation="fadeInUp">
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section pb-none mb-none">
-    <div class="container">
-        <div class="row">
-            <div class="pull-right col-md-7">
-                <h2 style="color:black">Web Application Development</h2>
-                <p style="color:black">At Shine Infosoft, we realize that custom web development projects require careful planning and flawless execution. That’s why we strive to fit our website platforms and programming to your project, not the other way around.</p>
-                <p style="color:black">We are providing following services.</p>
-                <ul>
-                    <li style="color:black">Custom Web Application Development (Asp.net, Php, Wordpress, etc.)</li>
-                    <li style="color:black">Web Application Modernization</li>
-                    <li style="color:black">Application Integration</li>
-                    <li style="color:black">Application Re-engineering</li>
-                </ul>
-            </div>
-            <div class="pull-left col-md-4" style="margin-bottom:75px">
-                <img class="img-responsive appear-animation animated fadeInUp appear-animation-visible" src="/img/icons/webdevelopment.png" alt="" data-appear-animation="fadeInUp">
-            </div>
+<div id="OurServices"></div>
 
-        </div>
-    </div>
-</section>
-<section class="section section-tertiary pb-none mb-none">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <h2 class="text-light">UI/UX Design &amp; Development</h2>
-                <p class="text-light">Shine Infosoft consists of talented graphic artists who are also strategic marketers. We support our clients with all of their digital and print design needs. Our designers are focused on creating value, strengthening brand presence and delivering a sustainable edge. With the growing importance of customer experience, the significance of user experience in designing is apparent. Fulfilling the user’s need and providing a satisfying feel is critical as websites today have become rich in terms of features and relatively more complex. Enhancing the individual’s experience helps in creating a long lasting impression in minds of the audience.</p>
-            </div>
-            <div class="pull-right col-md-4" style="margin-bottom:55px">
-                <img class="img-responsive appear-animation animated fadeInUp appear-animation-visible" src="/img/icons/ux-ui-design.png" alt="" data-appear-animation="fadeInUp">
 
-            </div>
-        </div>
-    </div>
-</section>

@@ -153,3 +153,8 @@ C:\Users\ahmed\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Deb
 C:\Users\ahmed\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\ContactUs\Index.g.cshtml.cs
 C:\Users\ahmed\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Portfolio\Index.g.cshtml.cs
 C:\Users\ahmed\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Services\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\AboutUs\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Career\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\ContactUs\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Portfolio\Index.g.cshtml.cs
+C:\Users\AhmedOumezzine\Source\Repos\ahmedOumezzine\MyPortalAgency\MyPortalAgency\obj\Debug\netcoreapp2.1\Razor\Views\Services\Index.g.cshtml.cs

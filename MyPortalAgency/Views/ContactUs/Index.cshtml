@@ -27,102 +27,12 @@
 
 @section scripts{
     <script>
-        class Model {
-        constructor(ID_Div,Type,Function) {
-            this.ID_Div = ID_Div;
-            this.Type = Type;
-            this.Function = Function;
-        }
-    }
-        const Models = [];
         Models.push(
             new Model("WelovetoHelp", "WelovetoHelp", "render_WelovetoHelp"),
             new Model("BusinessHours", "BusinessHours", "render_BusinessHours"),
             new Model("OurOffice", "OurOffice", "render_OurOffice")
         );
-
-
-        function call(url, type, parameters, Models) {
-            var callobj = {
-                Title: "",
-                Description: "",
-                Type: ""
-            }
-            var urlstring = "?";
-            Object.entries(parameters).forEach((item, index, arr) => {
-                urlstring += item[0] + "=" + item[1] + "&";
-                if (!arr[index + 1]) {
-                    urlstring = urlstring.substring(0, urlstring.length - 1);
-                }
-            });
-            $.ajax({
-                type: type,
-                url: url + urlstring,
-                contentType: "application/json",
-                dataType: "json",
-                beforeSend: function () {
-                    // this is where we append a loading image
-                    //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
-                },
-                success: function (data) {
-                    // successful request; do something with the data
-                    var result = Object.assign(callobj, data);
-                    result.StatusCode = 200;
-                    callobj = result;
-                    Object.entries(Models).forEach((item, index, arr) => {
-                        var WelovetoHelp = callobj.pageContentViewModel.find(x => x.type === item[1].Type);
-                    document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);
-     
-                    });
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    // failed request; give feedback to user
-                    // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
-                    var result = Object.assign(callobj, xhr.responseJSON);
-                    result.StatusCode = 400;
-                    callobj = result;
-                }
-
-            });
-
-        }
-
-        function render_WelovetoHelp(Obj) {
-             var htmlstring =`
-            <h4 class="heading-primary mt-lg">We love to <strong>Help!</strong></h4>
-            <p>${Obj.Description}</p>
-            `
-            return htmlstring;
-}
-
-                function render_BusinessHours(keywords) {
-             var htmlstring =`
- <h4 class="heading-primary">Business <strong>Hours</strong></h4>
-            <ul class="list list-icons list-dark mt-xlg">
-                <li><i class="fa fa-clock-o"></i> ${Obj.Description} - ${Obj.Description}</li>
-                <li><i class="fa fa-clock-o"></i> Sunday - Closed</li>
-            </ul>           
-`
-            return htmlstring;
-}
-                        function render_OurOffice(keywords) {
-             var htmlstring =`
-   <h4 class="heading-primary">The <strong>Office</strong></h4>
-            <ul class="list list-icons list-icons-style-3 mt-xlg">
-                <li><i class="fa fa-map-marker"></i> <strong>Address :</strong>  A - 1119, Siddhi Vinayak Towers, Behind Jaguar Showroom, S.G.Highway, Ahmedabad - 380051</li>
-                <li><i class="fa fa-phone"></i> <strong>Phone :</strong> <a href="tel:079-48908561">079-48908561</a></li>
-                <li><i class="fa fa-envelope"></i> <strong>Email :</strong> <a href="mailto:info@shineinfosoft.in">info@shineinfosoft.in</a></li>
-                <li><i class="fa fa-skype"></i> <strong>Skype Id:</strong> <a href="skype:joshijitesh44?add">joshijitesh44</a></li>
-            </ul>
-            
-`
-            return htmlstring;
-}
-
-
-            call('https://localhost:44380/PageView/GetPages/', 'GET', { id: 'BA9FFC21-8790-4FA5-927D-0E789AC0870C' }, Models);
-
-   
+        call('https://localhost:44380/PageView/GetPages/', 'GET', { id: '392A6D68-7D6F-4E2E-ABC5-94EC78EF7B2C' }, Models);  
     </script>
 }
 

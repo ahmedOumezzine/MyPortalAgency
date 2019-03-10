@@ -24,6 +24,17 @@
     </section>
 }
 
+@section scripts{
+    <script>
+        Models.push(
+            new Model("AboutUs", "AboutUs", "render_AboutUs"),
+            new Model("PillarsofOurSuccess", "PillarsofOurSuccess", "render_PillarsofOurSuccess"),
+            new Model("OurStory", "OurStory", "render_OurStory")
+        );
+        call('https://localhost:44380/PageView/GetPages/', 'GET', { id: 'BECDF8D9-26B7-46DF-91AC-DF57035EDC77' }, Models);
+    </script>
+}
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 center">
@@ -37,12 +48,8 @@
 </div>
 
 <div class="container">
-    <div class="col-sm-12">
-        <h3>ABOUT SHINE INFOSOFT</h3>
-        <p>Shine Infosoft is a leading service provider with extensive experience in IT outsourcing services to enterprises across the globe. We are specialist in mobile application development, web development, software development, e-commerce, hybrid application development, SEO (Search Engine Optimization).</p>
-        <br>
-        <p>We are committed to translating advanced technologies into value for our clients and also in addressing and resolving their technical issues to meet their functional and business goals. This is made possible by selecting a dedicated team of professionals to each projects whose expertise perfectly magnitude with the project requirements. We help our clients in reengineering their businesses to eclipse competition.</p>
-    </div>
+    <div id="AboutUs"> </div>
+
 </div>
 <div class="container">
     <div class="row">
@@ -50,128 +57,12 @@
             <hr class="tall">
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Our <strong>Story</strong></h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-
-            <ul class="history">
-                <li class="appear-animation animated fadeInUp appear-animation-visible" data-appear-animation="fadeInUp">
-                    <div class="thumb">
-                        <img id="flipimage" src="img/icons/award.png" alt="">
-                    </div>
-                    <div class="featured-box">
-                        <div class="box-content">
-                            <h4 class="heading-primary"><strong>2017</strong></h4>
-                            <p>Shine Infosoft is awarded for successfully being part of nomination phase of india's top 500 most promising IT company by <a href="https://www.india5000.com">www.india500.com</a> for Qaulity Assurance in recently 2017. Since our founding in 2014, we have been among India's most influential and successful IT Companies, with strong year on year growth, a multitude of awards and a growing reputation as the India’s leading independent agency. </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="appear-animation animated fadeInUp appear-animation-visible" data-appear-animation="fadeInUp">
-                    <div class="thumb">
-                        <img id="flipimage" src="img/icons/team.png" alt="">
-                    </div>
-                    <div class="featured-box">
-                        <div class="box-content" style="border-top-color: #85c226;">
-                            <h4 class="heading-primary" style="color: #85c226 !important;"><strong>2016</strong></h4>
-                            <p>Jitesh Joshi inaugurated Shine Infosoft with a dynamic team of 40, since then we have delivered the best IT solutions. we thoroughly pay attention to detail, provide excellent support and customer service. Our process and hard work are appreciated by our clients who strongly recommend us as a reliable custom CMS and e-commerce web development company in India.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="appear-animation animated fadeInUp appear-animation-visible" data-appear-animation="fadeInUp">
-                    <div class="thumb">
-                        <img id="flipimage" src="img/icons/develop.png" alt="">
-                    </div>
-                    <div class="featured-box">
-                        <div class="box-content">
-                            <h4 class="heading-primary"><strong>2015</strong></h4>
-                            <p>Our focus has been to develop creative web and Mobile applications with excellent technical development and with solutions oriented approach. We work with amazing clients from US, UK, Australia and Europe who always come up with innovative designs which are modern and engaging and expect a reliable and clean technical web and mobile app development. </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="appear-animation animated fadeInUp appear-animation-visible" data-appear-animation="fadeInUp">
-                    <div class="thumb">
-                        <img id="flipimage" src="img/icons/idea.png" alt="">
-                    </div>
-                    <div class="featured-box">
-                        <div class="box-content" style="border-top-color: #85c226;">
-                            <h4 class="heading-primary" style="color: #85c226 !important;"><strong>2014</strong></h4>
-                            <p>Shine Infosoft is founded by Jitesh Joshi and ... in Ahmedabad, Gujarat, India with the total team of 5 members.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+</div>
+<div class="container">
+    <div id="OurStory"> </div>
 </div>
 
 <div class="container">
-    <div class="row pt-lg">
-        <div class="col-md-12">
-            <h2>Pillars of <strong>Our Success</strong></h2>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-bookmark"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Integrity </h4>
-                            <p class="tall">Acting ethically direct, honest and trustworthy through what we convey, matching our actions to our commitments and taking ownership of expected outcomes.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Excellent Team</h4>
-                            <p class="tall">Delivering industry’s best and innovative solutions by enabling customers to turn into high-performance business units by our team.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-level-up"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Respect others</h4>
-                            <p class="tall">Appreciating diverse contributions, nurturing trust in an open environment with respect for the individual by reflecting values of Shine Infosoft.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-line-chart"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Learning new things</h4>
-                            <p class="tall">we strongly believes in Measuring, monitoring, analyzing and improving outcomes continuously to exceed expectations by learning new trends and techniques.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-signal"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Huge Experience</h4>
-                            <p class="tall">Delivering not only promises with quick response time, we offer best suited tools, services and solutions for mutual profitable experience.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon">
-                            <i class="fa fa-handshake-o"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="heading-primary mb-none">Deliver products</h4>
-                            <p class="tall">Delivering commitments with innovative and flexible delivery models by enabling customers to stay ahead, even if it means over-delivering than what expected.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="PillarsofOurSuccess"></div>
+    
 </div>
