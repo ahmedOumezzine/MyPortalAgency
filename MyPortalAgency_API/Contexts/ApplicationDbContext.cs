@@ -20,11 +20,11 @@ namespace MyPortalAgency_API.Contexts
             // Customize the ASP.NET Core Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Core Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
-
+            #region about us
             PageViewModel PageViewModel = new PageViewModel {
                 Id= System.Guid.NewGuid(),
-                Title = "ABOUT SHINE INFOSOFT",
-                Description = "Shine Infosoft is a leading service provider with extensive experience in IT outsourcing services to enterprises across the globe. We are specialist in mobile application development, web development, software development, e-commerce, hybrid application development, SEO (Search Engine Optimization).",
+                Title = "ABOUT My Portal Agency ",
+                Description = "My Portal Agency is a leading service provider with extensive experience in IT outsourcing services to enterprises across the globe. We are specialist in mobile application development, web development, software development, e-commerce, hybrid application development, SEO (Search Engine Optimization).",
                 Type = "AboutUs"
             };
             PageContentViewModel PageContentViewModel = new PageContentViewModel {
@@ -45,7 +45,6 @@ namespace MyPortalAgency_API.Contexts
                 More = "",
                 PageViewModelId = PageViewModel.Id,
            };
-
             PageContentViewModel PageContentViewModel3 = new PageContentViewModel {
                 Id = System.Guid.NewGuid(),
                 Title = "Integrity ",
@@ -55,7 +54,6 @@ namespace MyPortalAgency_API.Contexts
                 More = "",
                 PageViewModelId = PageViewModel.Id,
            };
-
             PageContentViewModel PageContentViewModel4 = new PageContentViewModel {
                 Id = System.Guid.NewGuid(),
                 Title = "Excellent Team ",
@@ -64,8 +62,7 @@ namespace MyPortalAgency_API.Contexts
                 Logo = "fa fa-users",
                 More = "",
                 PageViewModelId = PageViewModel.Id,
-           };
-            
+           };           
             PageContentViewModel PageContentViewModel5 = new PageContentViewModel {
                 Id = System.Guid.NewGuid(),
                 Title = "ABOUT SHINE INFOSOFT ",
@@ -82,8 +79,8 @@ namespace MyPortalAgency_API.Contexts
             builder.Entity<PageContentViewModel>().HasData(PageContentViewModel3);
             builder.Entity<PageContentViewModel>().HasData(PageContentViewModel4);
             builder.Entity<PageContentViewModel>().HasData(PageContentViewModel5);
-
-
+            #endregion
+            #region ContactUs
             PageViewModel ContactUs = new PageViewModel
             {
                 Id = System.Guid.NewGuid(),
@@ -148,7 +145,8 @@ namespace MyPortalAgency_API.Contexts
             builder.Entity<PageContentViewModel>().HasData(ContactUsView4);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView5);
 
-
+            #endregion
+            #region Services
 
             PageViewModel Services = new PageViewModel
             {
@@ -166,8 +164,7 @@ namespace MyPortalAgency_API.Contexts
                 Logo = "data:image/png;base64,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",
                 More = "",
                 PageViewModelId = Services.Id,
-            };
- 
+            }; 
             PageContentViewModel ServicesView2 = new PageContentViewModel
             {
                 Id = System.Guid.NewGuid(),
@@ -181,7 +178,8 @@ namespace MyPortalAgency_API.Contexts
             builder.Entity<PageViewModel>().HasData(Services);
             builder.Entity<PageContentViewModel>().HasData(ServicesView);
             builder.Entity<PageContentViewModel>().HasData(ServicesView2);
-
+            #endregion
+            #region Portfolio
 
             PageViewModel portfolio = new PageViewModel
             {
@@ -200,7 +198,6 @@ namespace MyPortalAgency_API.Contexts
                 More = "",
                 PageViewModelId = portfolio.Id,
             };
- 
             PageContentViewModel portfolioView2 = new PageContentViewModel
             {
                 Id = System.Guid.NewGuid(),
@@ -213,9 +210,135 @@ namespace MyPortalAgency_API.Contexts
             }; 
             builder.Entity<PageViewModel>().HasData(portfolio);
             builder.Entity<PageContentViewModel>().HasData(portfolioView);
-            builder.Entity<PageContentViewModel>().HasData(portfolioView2); 
+            builder.Entity<PageContentViewModel>().HasData(portfolioView2);
 
+            #endregion
+            #region Career
+            PageViewModel Career = new PageViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Career",
+                Description = " description Career",
+                Type = "Career"
+            };
+            PageContentViewModel CareerView = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Make Career with us",
+                Description = "We are on a mission to empower companies to make real-time decisions, and to predict their future. If you are innovative, results-driven, and a team player, make a real-time decision that will predict your future to be dynamic and rewarding.",
+                Type = "OurCareers",
+                Logo = "",
+                More = "",
+                PageViewModelId = Career.Id,
+            };
+            PageContentViewModel CareerView2 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Android Developer",
+                Description = "We are looking for an Android Developer to work with our team of talented developers to design and build the next generation of mobile applications. As the mobile developer you will be responsible for the design/build of advanced applications for Android platforms. You will work with outside API’s and data sources, perform unit testing, troubleshoot/debug apps, and participate in Agile/SCRUM meetings. Design and build advanced applications for the Android platform. Collaborate with cross-functional teams to define, design new features. Unit-test code for robustness, including usability, and general reliability. Continuously discover, evaluate, and implement new technologies to maximize development efficiency.",
+                Type = "OurJobs",
+                Logo = "",
+                More = "{ 'Experience': '1–3 years', 'Positions': '3', 'Send your updated CV on': ' career@exemple.tn' }",
+                PageViewModelId = Career.Id,
+            };
+            PageContentViewModel CareerView3 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = ".Net Developer",
+                Description = "elit velit, lobortis sed interdum at, vestibulum vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis ligula ut ipsum mattis viverra.",
+                Type = "OurJobs",
+                Logo = "",
+                More = "{ 'Experience': '1–3 years', 'Positions': '4', 'Send your updated CV on': ' career@exemple.tn' }",
+                PageViewModelId = Career.Id,
+            };
+            PageContentViewModel CareerView4 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Xamarin Developer",
+                Description = "elit velit, lobortis sed interdum at, vestibulum vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis ligula ut ipsum mattis viverra.",
+                Type = "OurJobs",
+                Logo = "",
+                More = "{ 'Experience': '1–5 years', 'Positions': '4', 'Send your updated CV on': ' career@exemple.tn' }",
+                PageViewModelId = Career.Id,
+            };
+            builder.Entity<PageViewModel>().HasData(Career);
+            builder.Entity<PageContentViewModel>().HasData(CareerView);
+            builder.Entity<PageContentViewModel>().HasData(CareerView2);
+            builder.Entity<PageContentViewModel>().HasData(CareerView3);
+            #endregion
 
+            #region themes options
+            ThemeOptionModels ThemeOptionModel = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Logo",
+                Value = "",
+                Name = "logooptions",
+                Type = "File"
+            };
+            ThemeOptionModels ThemeOptionModel2 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "favicon",
+                Value = "",
+                Name = "logooptions",
+                Type = "File"
+            };
+
+            ThemeOptionModels ThemeOptionModel3 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Facebook",
+                Value = "",
+                Name = "SocialNetwork",
+                Type = "Link"
+            };
+
+            ThemeOptionModels ThemeOptionModel4 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Google Plus",
+                Value = "",
+                Name = "SocialNetwork",
+                Type = "Link"
+            };
+
+            ThemeOptionModels ThemeOptionModel5 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Linkedln",
+                Value = "",
+                Name = "SocialNetwork",
+                Type = "Link"
+            };
+            ThemeOptionModels ThemeOptionModel6 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Copyright",
+                Value = "",
+                Name = "FooterOptions",
+                Type = "Text"
+            };
+
+            ThemeOptionModels ThemeOptionModel7 = new ThemeOptionModels
+            {
+                Id = System.Guid.NewGuid(),
+                Key = "Menu",
+                Value = "",
+                Name = "HeaderOptions",
+                Type = "li"
+            };
+        
+
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel2);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel3);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel4);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel5);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel6);
+            builder.Entity<ThemeOptionModels>().HasData(ThemeOptionModel7); 
+
+            #endregion
         }
 
     }

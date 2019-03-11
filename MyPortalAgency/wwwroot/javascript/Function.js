@@ -25,7 +25,8 @@ function call(url, type, parameters, Models) {
             result.StatusCode = 200;
             callobj = result;
             Object.entries(Models).forEach((item, index, arr) => {
-                    var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
+                var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
+                console.log(item);
                     document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);  
             });
             document.getElementById("Title").innerHTML = render_Title(callobj.title);
@@ -230,5 +231,48 @@ function render_OurPortfolios(Obj) {
          
     htmlstring += `</div></div></div>`;
 
+    return htmlstring;
+}
+
+// Career 
+
+
+
+function render_OurCareers(Obj) {
+    var htmlstring = ``;
+    Obj.forEach(function (element, index) {
+        htmlstring += `<h2>${element.title}</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="lead">
+           ${element.description}
+</p>
+        </div>
+    </div>`;
+    });
+    return htmlstring;
+}
+
+function render_OurJobs(Obj) {
+    var htmlstring = `<div class="row">
+        <div class="col-md-12">
+            <div class="toggle toggle-primary mt-lg" data-plugin-toggle="">`;
+    Obj.forEach(function (element, index) {
+        jsonObject = JSON.parse(element.more);
+        console.log(jsonObject);
+
+        htmlstring += ` <section class="toggle">
+                    <label>${element.title}</label>
+                    <div class="toggle-content" style="display: block;">
+                        <p><strong>Description : </strong> ${element.description}</p>`;
+        for (var prop in jsonObject) {
+            htmlstring += ` <p><strong>${prop} </strong> ${jsonObject[prop]}</p>`;
+        }
+                    
+            htmlstring += ` </div> </section>`;
+    });
+    htmlstring += `</div>
+        </div>
+    </div>`;
     return htmlstring;
 }
