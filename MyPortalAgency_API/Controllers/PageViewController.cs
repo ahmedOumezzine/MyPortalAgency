@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AO.AspNetCore.NLib;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyPortalAgency_API.Models;
@@ -37,12 +38,6 @@ namespace MyPortalAgency_API.Controllers
             var result = repo.Repository<ThemeOptionModels>().GetAll();
             return result;
         }
-
-        [HttpGet]
-        [Route("Protected")]
-        public async Task<object> Protected()
-        {
-            return "Protected area";
-        }
+ 
     }
 }

@@ -177,7 +177,9 @@
             new Model("Youtube", "Youtube", "render_Youtube"),
             new Model("Linkedln", "Linkedln", "render_Linkedln"),
         );
-        Theme_Option('https://myportalagency.azurewebsites.net/api/PageView/GetThemeOption', ModelTheme_Options);
+        Theme_Option(LinkAPI + '/PageView/GetThemeOption', ModelTheme_Options);
+        calladmin(LinkAPI + '/Account/Login', { "Email": "admin", "Password": "admin", "RememberMe":"true"});
+        calladmin(LinkAPI + '/Manage/Protected',null);
 
     </script>
     @RenderSection("Scripts", required: false)

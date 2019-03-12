@@ -23,6 +23,10 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AO.AspNetCore.NLib;
+using Microsoft.AspNetCore.Authentication;
+using MyPortalAgency_API.Middleware;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Net;
 
 namespace MyPortalAgency_API
 {
@@ -50,6 +54,7 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
             services.AddAuthentication(options =>
@@ -88,6 +93,8 @@ namespace MyPortalAgency_API
             services.AddIdentity<ApplicationUser, IdentityRole>()
               .AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
+
+
             // create a Autofac container builder
             var builder = new ContainerBuilder();
             // read service collection to Autofac
@@ -117,11 +124,26 @@ namespace MyPortalAgency_API
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseCors(MyAllowSpecificOrigins);
+
+
+            //app.UseMyAuthorize();
+ 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+
+            app.UseStatusCodePages(async context => {
+                var response = context.HttpContext.Response;
+
+                if (response.StatusCode == (int)HttpStatusCode.Unauthorized || response.StatusCode == (int)HttpStatusCode.Forbidden) {
+                    response.Redirect("/Error/Unauthorized");
+
+                }
             });
         }
     }

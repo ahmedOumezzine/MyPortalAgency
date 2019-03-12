@@ -1,5 +1,6 @@
-﻿const LinkAPI ="https://myportalagency.azurewebsites.net/api";
-//const LinkAPI ="https://localhost:44380";
+﻿//const LinkAPI ="https://myportalagency.azurewebsites.net/api";
+const LinkAPI ="https://localhost:44380";
+var TOKEN ="";
 const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
     var Theme = [];
@@ -17,17 +18,15 @@ function Theme_Option(url, Models) {
             var result = Object.assign(Theme, data);
             result.StatusCode = 200;
             Theme = result;
-            console.log(Theme);
             Object.entries(Models).forEach((item, index, arr) => {
                 var WelovetoHelp = Theme.findIndex(x => x.key === item[1].Type);
-                console.log(item);
                document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](Theme[WelovetoHelp]);
             });
         },
         error: function (xhr, ajaxOptions, thrownError) {
             // failed request; give feedback to user
             // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
-            var result = Object.assign(callobj, xhr.responseJSON);
+            var result = Object.assign(Theme, xhr.responseJSON);
             result.StatusCode = 400;
             callobj = result;
         }
@@ -72,6 +71,44 @@ function call(url, type, parameters, Models) {
             var result = Object.assign(callobj, xhr.responseJSON);
             result.StatusCode = 400;
             callobj = result;
+        }
+
+    });
+
+}
+
+
+function calladmin(url, parameters) {
+    var callobj = {
+    }
+    console.log("url", url);
+    var myData = JSON.stringify(parameters);
+
+    console.log("parameters", myData);
+    $.ajax({
+        type: "POST",
+        url: url ,
+        contentType: "application/json",
+        dataType: "json",
+        data: myData,
+        headers: {
+            "Authorization": "Bearer " + TOKEN
+        },
+        beforeSend: function () {
+            // this is where we append a loading image
+            //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
+        },
+        success: function (data) {
+            // successful request; do something with the data
+            if (data.token != null) {
+                TOKEN = data.token;
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
         }
 
     });

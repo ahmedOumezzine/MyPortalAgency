@@ -46,8 +46,9 @@ namespace MyPortalAgency_API.Controllers
 
             if (result.Succeeded)
             {
-                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return await GenerateJwtToken(model.Email, appUser);
+                var appUser = _userManager.Users.SingleOrDefault(r => r.UserName == model.Email);
+
+                return  new  { Token = await GenerateJwtToken(model.Email, appUser) };
             }
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
