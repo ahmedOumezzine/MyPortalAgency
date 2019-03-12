@@ -29,7 +29,7 @@
         Models.push(
             new Model("OurPortfolios", "OurPortfolios", "render_OurPortfolios"),
         );
-        call('http://myportalagency.azurewebsites.net/api/PageView/GetPages/', 'GET', { id: '2146135F-3830-4C0C-A8F4-57F4D2752D20' }, Models);
+        call(LinkAPI + '/PageView/GetPages/', 'GET', { type: 'portfolio' }, Models);
     </script>
 }
     <div class="container">

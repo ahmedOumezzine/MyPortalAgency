@@ -1,7 +1,8 @@
-﻿const ModelTheme_Options = [];
+﻿const LinkAPI ="https://myportalagency.azurewebsites.net/api";
+//const LinkAPI ="https://localhost:44380";
+const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
-    var callobj = {
-    }
+    var Theme = [];
     $.ajax({
         type: 'GET',
         url: url,
@@ -13,12 +14,14 @@ function Theme_Option(url, Models) {
         },
         success: function (data) {
             // successful request; do something with the data
-            var result = Object.assign(callobj, data);
+            var result = Object.assign(Theme, data);
             result.StatusCode = 200;
-            callobj = result;
+            Theme = result;
+            console.log(Theme);
             Object.entries(Models).forEach((item, index, arr) => {
-                var WelovetoHelp = callobj.filter(x => x.type === item[1].Type);
-                document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);
+                var WelovetoHelp = Theme.findIndex(x => x.key === item[1].Type);
+                console.log(item);
+               document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](Theme[WelovetoHelp]);
             });
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -303,5 +306,33 @@ function render_OurJobs(Obj) {
     htmlstring += `</div>
         </div>
     </div>`;
+    return htmlstring;
+}
+
+
+
+
+// theme Optioon
+
+
+function render_Copyright(Obj) {
+    var htmlstring = `${Obj.value}`;
+    return htmlstring;
+}
+
+function render_Youtube(Obj) {
+    var htmlstring = `<a href="${Obj.value}" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>`;
+    return htmlstring;
+}
+function render_Facebook(Obj) {
+    var htmlstring = `<a href="${Obj.value}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>`;
+    return htmlstring;
+}
+function render_Linkedln(Obj) {
+    var htmlstring = `<a href="${Obj.value}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>`;
+    return htmlstring;
+}
+function render_LogoHeader(Obj) {
+    var htmlstring = `<img alt="Logo" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="${Obj.value}">`;
     return htmlstring;
 }

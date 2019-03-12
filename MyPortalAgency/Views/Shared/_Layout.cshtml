@@ -55,9 +55,9 @@
                             <div class="header-column justify-content-end">
                                 <div class="header-row">
                                     <ul class="header-social-icons social-icons d-none d-sm-block social-icons-clean">
-                                        <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                        <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li class="social-icons-facebook" id="Facebook"></li>
+                                        <li class="social-icons-youtube" id="Youtube"></li>
+                                        <li class="social-icons-linkedin" id="Linkedln"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -69,8 +69,7 @@
                         <div class="header-column">
                             <div class="header-row">
                                 <div class="header-logo">
-                                    <a href="index.html">
-                                        <img alt="Porto" width="100" height="48" data-sticky-width="82" data-sticky-height="40" src="https://payquad.com/wp-content/uploads/2017/05/MyPortal-e1493649911177.png">
+                                    <a asp-controller="Home" asp-action="Index" id="LogoHeader">
                                     </a>
                                 </div>
                             </div>
@@ -134,12 +133,12 @@
                 <div class="container py-2">
                     <div class="row py-4">
                         <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
-                            <a href="index.html" class="logo pr-0 pr-lg-3"> <img alt="Porto Website Template" src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/ce/Portal_%28jeu_vid%C3%A9o%29_Logo.svg/1280px-Portal_%28jeu_vid%C3%A9o%29_Logo.svg.png" class="opacity-5" height="33"> </a>
+                            <a asp-controller="Home" asp-action="Index" class="logo pr-0 pr-lg-3"> <img alt="Porto Website Template" src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/ce/Portal_%28jeu_vid%C3%A9o%29_Logo.svg/1280px-Portal_%28jeu_vid%C3%A9o%29_Logo.svg.png" class="opacity-5" height="33"> </a>
                         </div>
                         <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
                         </div>
                         <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-                            <p>© Copyright 2019. All Rights Reserved.</p>
+                            <p id="Copyright"></p>
 
                         </div>
                     </div>
@@ -172,9 +171,13 @@
     <script src="~/javascript/Function.js"></script>
     <script>
         ModelTheme_Options.push(
-            new Model("AboutUs", "AboutUs", "render_AboutUs"),
+            new Model("Copyright", "Copyright", "render_Copyright"),
+            new Model("LogoHeader", "LogoHeader", "render_LogoHeader"),
+            new Model("Facebook", "Facebook", "render_Facebook"),
+            new Model("Youtube", "Youtube", "render_Youtube"),
+            new Model("Linkedln", "Linkedln", "render_Linkedln"),
         );
-        Theme_Option('http://myportalagency.azurewebsites.net/api/PageView/GetThemeOption/', ModelTheme_Options);
+        Theme_Option('https://myportalagency.azurewebsites.net/api/PageView/GetThemeOption', ModelTheme_Options);
 
     </script>
     @RenderSection("Scripts", required: false)

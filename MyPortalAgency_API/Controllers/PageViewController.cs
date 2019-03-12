@@ -24,9 +24,9 @@ namespace MyPortalAgency_API.Controllers
 
         [HttpGet]
         [Route("GetPages")]
-        public async Task<object> GetPages([FromQuery] Guid Id)
+        public async Task<object> GetPages([FromQuery]String Type)
         {
-            var result = repo.Repository<PageViewModel>().FindBy( x=>x.Id ==Id, "PageContentViewModel");
+            var result = repo.Repository<PageViewModel>().FindBy( x=>x.Type == Type, "PageContentViewModel");
             return result;
         }
 

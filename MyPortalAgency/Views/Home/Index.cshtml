@@ -2,56 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 @section scripts{ 
-<script>
-    class User {
-        constructor() {
-             
-        }
-    }
-    //var User = {
-    //    Title: "",
-    //    Description: "",
-    //    Type : ""
-    //}
-    var Users= new User();
-    call('https://localhost:44380/PageView/GetPages/', 'GET', { id: '58121566-F3F8-4BAC-841A-E0996798DA0A' }, Users);
-
-    function call(url, type, parameters, callobj) {
-        var urlstring = "?";
-        Object.entries(parameters).forEach((item, index, arr) => {
-            urlstring += item[0] + "=" + item[1] + "&";
-            if (!arr[index + 1]) {
-                urlstring = urlstring.substring(0, urlstring.length - 1);
-            }
-        });
-           $.ajax({
-               type: type,
-               url: url + urlstring,
-               contentType: "application/json",
-               dataType: "json",
-               beforeSend: function () {
-                   // this is where we append a loading image
-                   //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
-               },
-            success: function (data) {
-                // successful request; do something with the data
-                //obj = JSON.parse(data);
-                var result = Object.assign(callobj, data);
-                result.StatusCode = 200;
-                callobj = result;
-            },
-               error: function (xhr, ajaxOptions, thrownError) {
-                // failed request; give feedback to user
-                // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
-                   var result = Object.assign(callobj, xhr.responseJSON);
-                   result.StatusCode = 400;
-                   callobj = result;
-               }
-
-        });
-
-     }
-</script>
+ 
 }
 
 

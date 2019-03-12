@@ -31,7 +31,7 @@
             new Model("PillarsofOurSuccess", "PillarsofOurSuccess", "render_PillarsofOurSuccess"),
             new Model("OurStory", "OurStory", "render_OurStory")
         );
-        call('http://myportalagency.azurewebsites.net/api/PageView/GetPages/', 'GET', { id: '79140B2F-9B10-4080-B5A0-311FD6D28476' }, Models);
+        call(LinkAPI + '/PageView/GetPages/', 'GET', { type: 'AboutUs' }, Models);
     </script>
 }
 

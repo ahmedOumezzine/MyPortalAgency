@@ -50,7 +50,6 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
             services.AddAuthentication(options =>
@@ -71,19 +70,10 @@ namespace MyPortalAgency_API
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
-
-            // Register the Swagger generator, defining one or more Swagger documents  
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });
-
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins, ConfigurePolicy);
             });
-
-
             // ===== Add MVC ========
             services.AddMvc();
             services.Configure<MvcJsonOptions>(config =>
@@ -91,7 +81,7 @@ namespace MyPortalAgency_API
                 config.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
 
-            // ===== Add our DbContext ========
+           // ===== Add our DbContext ========
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // ===== Add Identity ========
@@ -116,36 +106,17 @@ namespace MyPortalAgency_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
-            // Enable middleware to serve generated Swagger as a JSON endpoint.  
-            app.UseSwagger();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint( "/swagger/v1/swagger.json", "My API V1");
-                });
-
             }
             else
             {
                 app.UseHsts();
-                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("http://myportalagency.azurewebsites.net/API/swagger/v1/swagger.json", "My API V1");
-                });
             }
-
             app.UseHttpsRedirection();
             app.UseAuthentication();
-
-
             app.UseCors(MyAllowSpecificOrigins);
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

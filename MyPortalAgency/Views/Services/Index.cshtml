@@ -28,7 +28,7 @@
         Models.push(
             new Model("OurServices", "OurServices", "render_OurServices"),
         );
-        call('http://myportalagency.azurewebsites.net/api/PageView/GetPages/', 'GET', { id: 'C1DB9326-7687-47AB-8FBE-988F8B0D81DE' }, Models);
+        call(LinkAPI + '/PageView/GetPages/', 'GET', { type: 'Services' }, Models);
     </script>
 }
     <div class="container">
