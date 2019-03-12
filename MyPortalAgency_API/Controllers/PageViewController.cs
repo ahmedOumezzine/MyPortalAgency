@@ -31,6 +31,14 @@ namespace MyPortalAgency_API.Controllers
         }
 
         [HttpGet]
+        [Route("GetThemeOption")]
+        public async Task<object> GetThemeOption()
+        {
+            var result = repo.Repository<ThemeOptionModels>().GetAll();
+            return result;
+        }
+
+        [HttpGet]
         [Route("Protected")]
         public async Task<object> Protected()
         {

@@ -1,7 +1,39 @@
-﻿
+﻿const ModelTheme_Options = [];
+function Theme_Option(url, Models) {
+    var callobj = {
+    }
+    $.ajax({
+        type: 'GET',
+        url: url,
+        contentType: "application/json",
+        dataType: "json",
+        beforeSend: function () {
+            // this is where we append a loading image
+            //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
+        },
+        success: function (data) {
+            // successful request; do something with the data
+            var result = Object.assign(callobj, data);
+            result.StatusCode = 200;
+            callobj = result;
+            Object.entries(Models).forEach((item, index, arr) => {
+                var WelovetoHelp = callobj.filter(x => x.type === item[1].Type);
+                document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // failed request; give feedback to user
+            // $('#ajax-panel').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>');
+            var result = Object.assign(callobj, xhr.responseJSON);
+            result.StatusCode = 400;
+            callobj = result;
+        }
+
+    });
+
+}
 function call(url, type, parameters, Models) {
     var callobj = {
-
     }
     var urlstring = "?";
     Object.entries(parameters).forEach((item, index, arr) => {
@@ -26,8 +58,7 @@ function call(url, type, parameters, Models) {
             callobj = result;
             Object.entries(Models).forEach((item, index, arr) => {
                 var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
-                console.log(item);
-                    document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);  
+                document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);  
             });
             document.getElementById("Title").innerHTML = render_Title(callobj.title);
             document.getElementById("Description").innerHTML = render_Description(callobj.description);
@@ -259,8 +290,6 @@ function render_OurJobs(Obj) {
             <div class="toggle toggle-primary mt-lg" data-plugin-toggle="">`;
     Obj.forEach(function (element, index) {
         jsonObject = JSON.parse(element.more);
-        console.log(jsonObject);
-
         htmlstring += ` <section class="toggle">
                     <label>${element.title}</label>
                     <div class="toggle-content" style="display: block;">

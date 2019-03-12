@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPortalAgency_API.Models
 {
+    [Table("ThemeOption")]
     public class ThemeOptionModels
     {
         [Key]
