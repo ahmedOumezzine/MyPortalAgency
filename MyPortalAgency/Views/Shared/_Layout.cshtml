@@ -178,9 +178,6 @@
             new Model("Linkedln", "Linkedln", "render_Linkedln"),
         );
         Theme_Option(LinkAPI + '/PageView/GetThemeOption', ModelTheme_Options);
-        calladmin(LinkAPI + '/Account/Login', { "Email": "admin", "Password": "admin", "RememberMe":"true"});
-        calladmin(LinkAPI + '/Manage/Protected',null);
-
     </script>
     @RenderSection("Scripts", required: false)
 

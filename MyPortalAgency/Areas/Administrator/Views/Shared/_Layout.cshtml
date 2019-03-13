@@ -54,8 +54,37 @@
     </style>
     <!-- Head Libs -->
     <script src="~/portal/vendor\modernizr\modernizr.js"></script>
+    <script>
+        let b64DecodeUnicode = str =>
+            decodeURIComponent(
+                Array.prototype.map.call(atob(str), c =>
+                    '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+                ).join(''))
+
+        let parseJwt = token =>
+            JSON.parse(
+                b64DecodeUnicode(
+                    token.split('.')[1].replace('-', '+').replace('_', '/')
+                )
+            )
+
+        function login() {
+            var storedToken = localStorage.getItem('token');
+            if (storedToken === null) {
+                window.location.href = 'Account';
+            } else {
+                var parsedToken = parseJwt(localStorage.getItem("token"));
+                var expireyTime = parsedToken.exp;
+                var timeStamp = Math.floor(Date.now() / 1000);
+                var difference = expireyTime - timeStamp;
+                if (difference <= 0) {
+                    window.location.href = 'Account';
+                }
+            }
+           }
+    </script>
 </head>
-<body>
+<body onload="login()">
     <section class="body">
 
         <!-- start: header -->
@@ -149,6 +178,7 @@
         </environment>*@
     <script type="text/javascript" src="~/javascript/Script.min.js"></script>
     <script src="~/portal/js\theme.init.js"></script>
+    <script src="~/javascript/Function.js"></script>
 
 
     @RenderSection("Scripts", required: false)

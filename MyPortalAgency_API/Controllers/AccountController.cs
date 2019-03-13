@@ -50,8 +50,7 @@ namespace MyPortalAgency_API.Controllers
 
                 return  new  { Token = await GenerateJwtToken(model.Email, appUser) };
             }
-
-            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+            return new { error = "INVALID_LOGIN_ATTEMPT" };
         }
 
         [HttpPost]

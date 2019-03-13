@@ -1,6 +1,5 @@
 ﻿//const LinkAPI ="https://myportalagency.azurewebsites.net/api";
 const LinkAPI ="https://localhost:44380";
-var TOKEN ="";
 const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
     var Theme = [];
@@ -82,17 +81,16 @@ function calladmin(url, parameters) {
     var callobj = {
     }
     console.log("url", url);
-    var myData = JSON.stringify(parameters);
-
-    console.log("parameters", myData);
+    //var myData = JSON.stringify(parameters);
+    console.log("parameters", parameters);
     $.ajax({
         type: "POST",
         url: url ,
         contentType: "application/json",
         dataType: "json",
-        data: myData,
+        data: parameters,
         headers: {
-            "Authorization": "Bearer " + TOKEN
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         beforeSend: function () {
             // this is where we append a loading image
@@ -101,7 +99,8 @@ function calladmin(url, parameters) {
         success: function (data) {
             // successful request; do something with the data
             if (data.token != null) {
-                TOKEN = data.token;
+                localStorage.setItem("token", data.token);
+                window.location.href = LinkAdmin;
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {

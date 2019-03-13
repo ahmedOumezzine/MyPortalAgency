@@ -38,6 +38,13 @@ namespace MyPortalAgency_API.Controllers
             var result = repo.Repository<ThemeOptionModels>().GetAll();
             return result;
         }
- 
+
+        [HttpGet]
+        [Route("Protected")]
+        [Authorize]
+        public async Task<object> Protected()
+        {
+            return "Protected area";
+        }
     }
 }
