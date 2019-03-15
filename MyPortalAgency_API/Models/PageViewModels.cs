@@ -42,13 +42,19 @@ namespace MyPortalAgency_API.Models
 
     }
 
-    public class PageContentFormViewModel : Table
+    public class FormViewModel : Table
     {
-        public String FieldType { get; set; }
-        public String FieldName { get; set; }
-        public String Label { get; set; }
-        public String placeholder { get; set; }
-        public String FormName { get; set; }
+        public String name { get; set; }
+        public String header { get; set; }
+        public String url { get; set; }
+
+    }
+    public class Form_ContentViewModel : Table
+    {
+        public String field { get; set; }
+        public String type { get; set; }
+        public String required { get; set; }
+        public String options { get; set; } // { items: ['Adams, John', 'Johnson, Peter', 'Lewis, Frank', 'Cruz, Steve', 'Donnun, Nick'] }
 
     }
     public class PageContentFormResultViewModel : Table

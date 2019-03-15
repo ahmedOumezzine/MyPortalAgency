@@ -26,6 +26,48 @@
 
 
 @section scripts{
+
+    <script src="~/javascript/w2ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#form').w2form({
+                name: 'form',
+                header: 'Form Events',
+                url: 'server/post',
+                fields: [
+                    { field: 'field_text', type: 'text', required: true },
+                    { field: 'field_alpha', type: 'alphaNumeric', required: true },
+                    { field: 'field_int', type: 'int', required: true },
+                    { field: 'field_float', type: 'float', required: true },
+                    {
+                        field: 'field_list', type: 'select', required: true,
+                        options: { items: ['Adams, John', 'Johnson, Peter', 'Lewis, Frank', 'Cruz, Steve', 'Donnun, Nick'] }
+                    },
+                    { field: 'field_textarea', type: 'textarea' },
+                    { field: 'field_select', type: 'select', required: false, options: { items: ['fist', 'second'] } },
+                ],
+                actions: {
+                    reset: function () {
+                        this.clear();
+                    },
+                    save: function () {
+                        var obj = this;
+                        console.log(obj);
+                        this.save({},
+                            function (data) {
+                                console.log('data: ' + data);
+                                if (data.status == 'error') {
+                                    console.log('ERROR: ' + data.message);
+                                    return;
+                                }
+                                obj.clear();
+                            });
+                    }
+                }
+            });
+        });
+    </script>
+
     <script>
         Models.push(
             new Model("WelovetoHelp", "WelovetoHelp", "render_WelovetoHelp"),
@@ -44,28 +86,26 @@
 
     <div class="row">
         <div class="col-md-6">
+            <div id="form" style=""></div>
 
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Your name *</label>
-                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
+            @*<div class="form-group">
+                    <div class="">
+                        <label>Your name *</label>
+                        <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
+                    </div>
+                    <div class="">
+                        <label>Your email address *</label>
+                        <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label>Your email address *</label>
-                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
-                </div>
-            </div>
-            <div class="row">
                 <div class="form-group">
-                    <div class="col-md-12">
+                    <div class="">
                         <label>Subject</label>
                         <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject">
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="form-group">
-                    <div class="col-md-12">
+                    <div class="">
                         <label>Message *</label>
                         <textarea maxlength="5000" data-msg-required="Please enter your message." rows="5" class="form-control" name="message" id="message"></textarea>
                     </div>
@@ -73,13 +113,11 @@
                         <span id="ErrorText" style="color:red;font-weight:bold"></span>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="button" id="SubmitMessage" onclick="" value="Send Message" class="CaptchaSubmit btn btn-primary btn-lg mb-xlg">
-                </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="button" id="SubmitMessage" onclick="" value="Send Message" class="CaptchaSubmit btn btn-primary btn-lg mb-xlg">
+                    </div>
+                </div>*@
 
         </div>
         <div class="col-md-6">

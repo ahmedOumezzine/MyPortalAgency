@@ -167,12 +167,23 @@ namespace MyPortalAgency_API.Contexts
                 More = "",
                 PageViewModelId = ContactUs.Id,
             };
+            PageContentViewModel ContactUsView6 = new PageContentViewModel
+            {
+                Id = System.Guid.NewGuid(),
+                Title = "Let's talk",
+                Description = "Questions? Comments? We'd love to hear from you. Please don't hesitate to get in touch",
+                Type = "Letstalk",
+                Logo = "",
+                More = "",
+                PageViewModelId = ContactUs.Id,
+            };
             builder.Entity<PageViewModel>().HasData(ContactUs);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView2);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView3);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView4);
             builder.Entity<PageContentViewModel>().HasData(ContactUsView5);
+            builder.Entity<PageContentViewModel>().HasData(ContactUsView6);
 
             #endregion
             #region Services
