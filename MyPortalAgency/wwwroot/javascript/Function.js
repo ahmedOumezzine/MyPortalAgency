@@ -1,5 +1,5 @@
-﻿//const LinkAPI ="https://myportalagency.azurewebsites.net/api";
-const LinkAPI ="https://localhost:44380";
+﻿const LinkAPI ="https://myportalagency.azurewebsites.net/api";
+//const LinkAPI ="https://localhost:44380";
 const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
     var Theme = [];
@@ -80,9 +80,6 @@ function call(url, type, parameters, Models) {
 function calladmin(url, parameters) {
     var callobj = {
     }
-    console.log("url", url);
-    //var myData = JSON.stringify(parameters);
-    console.log("parameters", parameters);
     $.ajax({
         type: "POST",
         url: url ,
@@ -94,7 +91,13 @@ function calladmin(url, parameters) {
         },
         beforeSend: function () {
             // this is where we append a loading image
-            //  $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
+            $('#ajax-panel').html('<div class="loading"><img src="https://cdn.dribbble.com/users/597558/screenshots/1998465/comp-2.gif" alt="Loading..." style=" height: 310px; margin-left: 30%; margin-right: 30%; " /></div>');
+            $('#panel-form').hide();
+        },
+        complete : function () {
+            // this is where we append a loading image
+            $('#ajax-panel').html('');
+            $('#panel-form').show();
         },
         success: function (data) {
             // successful request; do something with the data
@@ -102,12 +105,24 @@ function calladmin(url, parameters) {
                 localStorage.setItem("token", data.token);
                 window.location.href = LinkAdmin;
             }
+            if (data.error != null) {
+                $("#errorfrom").html("");
+                var htmlstring = '<div class="alert alert-danger alert-dismissible" role = "alert" >';
+                htmlstring += '<strong><i class="fas fa-exclamation-triangle"></i>there are errors below!</strong> <ul>';
+                htmlstring += ' <li>' + data.error + '</li>';
+                htmlstring += ' </ul></div >';
+                $("#errorfrom").append(htmlstring);
+            }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            
-            console.log(xhr);
-            console.log(ajaxOptions);
-            console.log(thrownError);
+            $("#errorfrom").html("");
+            var htmlstring = '<div class="alert alert-danger alert-dismissible" role = "alert" >';
+            htmlstring += '<strong><i class="fas fa-exclamation-triangle"></i>there are errors below!</strong> <ul>';
+            jQuery.each(xhr.responseJSON, function (i, val) {
+                htmlstring += ' <li>' + val + '</li>';
+            }); 
+            htmlstring += ' </ul></div >';
+            $("#errorfrom").append(htmlstring);
         }
 
     });
@@ -122,7 +137,6 @@ class Model {
     }
 }
 const Models = [];
-
 
 
 // contact us 
@@ -237,7 +251,6 @@ function render_OurStory(Obj) {
 function render_OurServices(Obj) {
     var htmlstring = ``;
     Obj.forEach(function (element, index) {
-        console.log(index);
         var css = (index % 2 == 0) ? "section pb-none mb-none " :"section section-tertiary pb-none mb-none";
         var pullright = (index % 2 == 0) ? "col-md-7" :" pull-right col-md-7";
         var pullleft = (index % 2 == 0) ? "pull-right col-md-4" :" pull-left col-md-4";

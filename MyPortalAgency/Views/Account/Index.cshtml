@@ -71,7 +71,6 @@
                 }
                 result = result.substring(0, result.length - 1);
                 result += "}";
-                console.log(result);
                calladmin(LinkAPI + '/Account/Login', result);
 
             });
@@ -89,9 +88,12 @@
             <div class="featured-boxes">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="featured-box featured-box-primary text-left mt-5" style="height: 408.625px;">
+                        <div id="ajax-panel"></div>
+                        <div id="panel-form" class="featured-box featured-box-primary text-left mt-5" style="">
                             <div class="box-content">
                                 <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">I'm a Returning Customer</h4>
+                               <div id="errorfrom"></div>
+                                
                                 <form action="/" id="frmSignIn" method="post">
                                     <div class="form-row">
                                         <div class="form-group col">
