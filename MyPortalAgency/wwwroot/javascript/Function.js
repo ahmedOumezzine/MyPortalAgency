@@ -1,5 +1,5 @@
-﻿const LinkAPI ="https://myportalagency.azurewebsites.net/api";
-//const LinkAPI ="https://localhost:44380";
+﻿//const LinkAPI ="https://myportalagency.azurewebsites.net/api";
+const LinkAPI ="https://localhost:44380";
 const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
     var Theme = [];
@@ -77,7 +77,7 @@ function call(url, type, parameters, Models) {
 }
 
 
-function calladmin(url, parameters) {
+function call_admin(url, parameters) {
     var callobj = {
     }
     $.ajax({
@@ -104,6 +104,9 @@ function calladmin(url, parameters) {
             if (data.token != null) {
                 localStorage.setItem("token", data.token);
                 window.location.href = LinkAdmin;
+            }
+            if (data.sucess!=null) {
+                window.location.href = Linkback;
             }
             if (data.error != null) {
                 $("#errorfrom").html("");

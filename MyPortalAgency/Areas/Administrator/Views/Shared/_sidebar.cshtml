@@ -1,4 +1,5 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <aside id="sidebar-left" class="sidebar-left">
 
     <div class="sidebar-header">
@@ -12,7 +13,7 @@
 
     <div class="nano">
         <div class="nano-content">
-       
+
 
             <hr class="separator">
 
@@ -24,67 +25,38 @@
                 <div class="widget-content">
                     <ul class="nav nav-main">
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="OurCompany" asp-action="AboutUs">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>About Us</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="OurCompany" asp-action="Services">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>Services</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="OurCompany" asp-action="Portfilio">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>Portfilio</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="OurCompany" asp-action="Career">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>Career</span>
                             </a>
                         </li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <hr class="separator">
-
-            <div class="sidebar-widget widget-tasks widget-collapsed">
-                <div class="widget-header">
-                    <h6>Contact Us</h6>
-                    <div class="widget-toggle">+</div>
-                </div>
-                <div class="widget-content">
-                    <ul class="nav nav-main">
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="OurCompany" asp-action="ContactUs">
                                 <i class="fas fa-home" aria-hidden="true"></i>
-                                <span>General</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                <span>List Messages</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                <span>List Supports</span>
+                                <span>Contact Us</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
 
             <hr class="separator">
 
@@ -96,17 +68,23 @@
                 <div class="widget-content">
                     <ul class="nav nav-main">
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="Settings" asp-action="General">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>General</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="~/portal/layouts-default.html">
+                            <a class="nav-link" asp-controller="Settings" asp-action="Loggers">
+                                <i class="fas fa-home" aria-hidden="true"></i>
+                                <span>Logger</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-controller="Settings" asp-action="ThemeOption">
                                 <i class="fas fa-home" aria-hidden="true"></i>
                                 <span>Theme Option</span>
                             </a>
-                        </li> 
+                        </li>
                     </ul>
                 </div>
             </div>

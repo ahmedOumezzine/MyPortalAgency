@@ -1,0 +1,91 @@
+﻿@model MyPortalAgency.Areas.Administrator.Models.PageContentViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@section scripts{
+    <script>
+        var Linkback = '@Model.Page';
+        function getB64Str(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+        $(document).ready(function () {
+            $("#submit").click(function (event) {
+                event.preventDefault();
+
+                var form = document.forms["frmOurStory"];
+                var length = form.length;
+                var result = "{";
+                for (i = 0; i < length; i++) {
+                    var e = form[i].name;
+                    var key = form[i].id;
+                    var value = form[i].value;
+                    var fieldType = form[i].type;
+                    //
+                    // Hiddin
+                    //
+                    if (fieldType == "hidden") {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    } //
+                    // RADIO BUTTON
+                    //
+                    if (fieldType == "radio") {
+                        for (x = 0; x < form.elements[e].length; x++) {
+                            if (form.elements[e][x].checked) {
+                                index = x;
+                            }
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    //
+                    // TEXT, TEXTAREA, and DROPDOWN
+                    //
+                    if ((fieldType == "text") || (fieldType == "password") || (fieldType == "textarea")) {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    // CHECKBOX
+                    //
+                    if (fieldType == "checkbox") {
+
+                        if (form.elements[e].checked == true) {
+                            value = "true";
+                        }
+                        if (form.elements[e].checked == false) {
+                            value = "false";
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                }
+
+                result = result.substring(0, result.length - 1);
+                result += "}";
+                call_admin(LinkAPI + '/PageView/DeletPageContent', result);
+
+             
+
+            });
+        });
+    </script>
+}
+<section class="card mb-4">
+    <div class="card-body">
+        <form action="/" id="frmOurStory" class="form-horizontal form-bordered">
+            <section class="card">
+                <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+                <input type="hidden" name="Title" id="Title" value="@Model.Title" />
+                <input type="hidden" name="Description" id="Description" value="@Model.Description" />
+                <input type="hidden" name="Logo" id="Logo" value="@Model.Logo" />
+                <footer class="card-footer text-right">
+                    <input type="submit" id="submit" value="submit" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
+                </footer>
+            </section>
+        </form>
+    </div>
+</section>
