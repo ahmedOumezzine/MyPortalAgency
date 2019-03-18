@@ -17,9 +17,21 @@ namespace MyPortalAgency.Areas.Administrator.Controllers
             return View();
         }
 
-        public IActionResult AboutUs()
+        public async Task<IActionResult> AboutUs()
         {
-            return View();
+            PageViewModel PageViewModel = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = await client.GetAsync("api//PageView/GetPages/?type=AboutUs");
+                if (response.IsSuccessStatusCode)
+                {
+                    PageViewModel = await response.Content.ReadAsAsync<PageViewModel>();
+                }
+            }
+            return View(PageViewModel);
         }
         
         public IActionResult Portfilio()

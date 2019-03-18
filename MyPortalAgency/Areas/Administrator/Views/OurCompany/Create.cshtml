@@ -4,6 +4,8 @@
 }
 @section scripts{
     <script>
+                        var  LinkAdmin = '@Url.Action("AboutUs","OurCompany",new { Area="Administrator"})';
+
         var Linkback = '@Model.Page';
         function getB64Str(buffer) {
             var binary = '';
@@ -19,7 +21,6 @@
                 event.preventDefault();
 
                 var form = document.forms["frmOurStory"];
-                console.log($('frmOurStory').serialize());
                 var length = form.length;
                 var result = "{";
                 var index;
@@ -29,12 +30,21 @@
                     var key = form[i].id;
                     var value = form[i].value;
                     var fieldType = form[i].type;
+
+                     //
+                    // Hiddin
+                    //
+                    if (fieldType == "select-one") {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
                     //
                     // Hiddin
                     //
                     if (fieldType == "hidden") {
                         result = result + '"' + key + '" : ' + '"' + value + '",';
-                    } //
+                    }
+
+                    //
                     // RADIO BUTTON
                     //
                     if (fieldType == "radio") {
@@ -65,7 +75,14 @@
                     }
                 }
 
+                if (document.querySelector('input[type=file]') == null) {
+                    
+                        result = result.substring(0, result.length - 1);
+                        result += "}";
+                        call_admin(LinkAPI + '/PageView/CreatePageContent', result);
+                } else {
 
+                    alert("file");
                 var file = document.querySelector('input[type=file]').files[0];
                 var blob = file.slice();
 
@@ -83,7 +100,7 @@
                     }
                 };
                 reader.readAsArrayBuffer(blob);
-
+}
             });
         });
     </script>

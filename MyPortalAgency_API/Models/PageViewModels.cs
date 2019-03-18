@@ -25,11 +25,8 @@ namespace MyPortalAgency_API.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        [Required]
         public String Title { get; set; }
-        [Required]
         public String Description { get; set; }
-        [Required]
         public String Logo { get; set; }
         public String Type { get; set; }
         public String More { get; set; }

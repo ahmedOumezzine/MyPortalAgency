@@ -6,6 +6,7 @@
 
 @section scripts{
     <script>
+                        var  LinkAdmin = '@Url.Action("AboutUs","OurCompany",new { Area="Administrator"})';
         var Linkback = '@Model.Page';
         function getB64Str(buffer) {
             var binary = '';
@@ -82,6 +83,8 @@
                 <input type="hidden" name="Title" id="Title" value="@Model.Title" />
                 <input type="hidden" name="Description" id="Description" value="@Model.Description" />
                 <input type="hidden" name="Logo" id="Logo" value="@Model.Logo" />
+                are you sur you want delet this ?
+                <br /> <br /> <br />
                 <footer class="card-footer text-right">
                     <input type="submit" id="submit" value="submit" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
                 </footer>

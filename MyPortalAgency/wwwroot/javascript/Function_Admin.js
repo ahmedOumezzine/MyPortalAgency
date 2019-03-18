@@ -26,6 +26,10 @@
                 var WelovetoHelp = callobj.pageContentViewModel.filter(x => x.type === item[1].Type);
                 document.getElementById(item[1].ID_Div).innerHTML = window[item[1].Function](WelovetoHelp);
             });
+            $("#Id").val(callobj.id);
+            $("#Title").val( callobj.title);
+            $("#Description").val(callobj.description) ;
+
 
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -42,14 +46,7 @@
 
 function renderAdmin_OurStory(Obj) {
     var htmlstring = ``;
-    if (Obj.length == 1) {
-        htmlstring = `${Obj[0].description}
-<hr>
-                 <div class="summary-footer  text-right " style="">
-                      <a href="${urledit}&&id=${Obj[0].id}" type="button" class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a> 
-                      <a href="${urldelete}&&id=${Obj[0].id}"  type="button" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a> 
-                </div>`;
-    } else {
+ 
         Obj.forEach(function (element) {
             htmlstring += `<div class="col-lg-12 col-xl-6">
         <section class="card card-horizontal mb-4">
@@ -77,7 +74,7 @@ function renderAdmin_OurStory(Obj) {
         </section>
     </div>`;
         });
-    }
+    
  
 
     return htmlstring;

@@ -34,12 +34,13 @@ namespace MyPortalAgency_API.Controllers
         [HttpPost]
         [Route("EditPage")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<object> EditPage([FromQuery]Guid? ID, PageViewModel model)
+        public async Task<object> EditPage(PageViewModel model)
         {
-            var result = repo.Repository<PageViewModel>().FindBy(x => x.Id == ID);
+            var result = repo.Repository<PageViewModel>().FindBy(x => x.Id == model.Id);
             result.Title = model.Title;
             result.Description = model.Description;
             repo.Repository<PageViewModel>().Edit(result);
+            repo.Repository<PageViewModel>().Save();
             return new { sucess = true };
         }
 
@@ -71,6 +72,10 @@ namespace MyPortalAgency_API.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<object> CreatePageContent(PageContentViewModel model)
         {
+            if (!model.Logo.StartsWith("fa"))
+            {
+                model.Logo = "data:image/jpeg;base64,"+model.Logo;
+            }
             repo.Repository<PageContentViewModel>().Add(model);
             repo.Repository<PageContentViewModel>().Save();
             return new { sucess = true };
@@ -83,7 +88,10 @@ namespace MyPortalAgency_API.Controllers
             var result = repo.Repository<PageContentViewModel>().FindBy(x => x.Id == model.Id);
             result.Title = model.Title;
             result.Description = model.Description;
-            result.Logo = "data:image/jpeg;base64," + model.Logo;
+            if (!model.Logo.StartsWith("fa"))
+            {
+                model.Logo = "data:image/jpeg;base64," + model.Logo;
+            }
             result.More = model.More;
             repo.Repository<PageContentViewModel>().Edit(result);
             repo.Repository<PageContentViewModel>().Save();

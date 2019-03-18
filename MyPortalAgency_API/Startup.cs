@@ -35,7 +35,7 @@ namespace MyPortalAgency_API
         void ConfigurePolicy(CorsPolicyBuilder builder)
         {
             builder
-                .WithOrigins("http://localhost", "http://localhost:80", "http://localhost:8080", "http://localhost:3000", "http://localhost:3001")
+                .WithOrigins("http://localhost", "http://localhost:80", "http://localhost:8080", "http://localhost:3000", "http://localhost:3001", "https://localhost:44389")
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()

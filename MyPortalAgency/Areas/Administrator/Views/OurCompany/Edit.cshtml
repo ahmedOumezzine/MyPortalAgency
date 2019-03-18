@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<script>
+            var  LinkAdmin = '@Url.Action("AboutUs","OurCompany",new { Area="Administrator"})'; 
+</script>
 @section scripts{
     <script>
         var Linkback = '@Model.Page';
@@ -65,25 +68,31 @@
                     }
                 }
          
-             
-                var file = document.querySelector('input[type=file]').files[0];
-                var blob = file.slice();
+                if (document.querySelector('input[type=file]') == null) {
 
-                var reader = new FileReader();
-                reader.onloadend = function (evt) {
-                    if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+                    result = result.substring(0, result.length - 1);
+                    result += "}";
+                    call_admin(LinkAPI + '/PageView/EditPageContent', result);
+                } else {
 
-                        var cont = evt.target.result
-                        var base64String = getB64Str(cont);
-                        result = result + '"logo" : ' + '"' + base64String + '",';
-                        result = result.substring(0, result.length - 1);
-                        result += "}";
-                        call_admin(LinkAPI + '/PageView/EditPageContent', result);
+                    var file = document.querySelector('input[type=file]').files[0];
+                    var blob = file.slice();
 
-                    }
-                };
-                reader.readAsArrayBuffer(blob);
+                    var reader = new FileReader();
+                    reader.onloadend = function (evt) {
+                        if (evt.target.readyState == FileReader.DONE) { // DONE == 2
 
+                            var cont = evt.target.result
+                            var base64String = getB64Str(cont);
+                            result = result + '"logo" : ' + '"' + base64String + '",';
+                            result = result.substring(0, result.length - 1);
+                            result += "}";
+                            call_admin(LinkAPI + '/PageView/EditPageContent', result);
+
+                        }
+                    };
+                    reader.readAsArrayBuffer(blob);
+                }
             });
         });
     </script>

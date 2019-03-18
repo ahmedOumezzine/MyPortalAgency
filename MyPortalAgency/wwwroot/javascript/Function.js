@@ -106,7 +106,7 @@ function call_admin(url, parameters) {
                 window.location.href = LinkAdmin;
             }
             if (data.sucess!=null) {
-                window.location.href = Linkback;
+                window.location.href = LinkAdmin+"/"+ Linkback;
             }
             if (data.error != null) {
                 $("#errorfrom").html("");
