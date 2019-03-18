@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section pageheader{
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Login</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-static">
+                    <span class="page-header-title-border visible" style="width: 196.703px;"></span>
+                    <h1 data-title-border="">Login</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@section scripts{
+    <script>
+       var  LinkAdmin = '@Url.Action("Index","Home",new { Area="Administrator"})';
+
+        $(document).ready(function () {
+            $("#submit").click(function (event) {
+                event.preventDefault();
+                var form = document.forms["frmSignIn"];
+                var length = form.length;
+                var result = "{";
+                var index;
+                for (i = 0; i < length; i++) {
+                    var e = form[i].name;
+                    var key = form[i].id;
+                    var value = form[i].value;
+                    var fieldType  = form[i].type;
+                    //
+                    // RADIO BUTTON
+                    //
+                    if (fieldType == "radio") {
+                        for (x = 0; x < form.elements[e].length; x++) {
+                            if (form.elements[e][x].checked) {
+                                index = x;
+                            }
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    //
+                    // TEXT, TEXTAREA, and DROPDOWN
+                    //
+                    if ((fieldType == "text") || (fieldType == "password") || (fieldType == "textarea")) {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    // CHECKBOX
+                    //
+                    if (fieldType == "checkbox") {
+
+                        if (form.elements[e].checked == true) {
+                            value = "true";
+                        }
+                        if (form.elements[e].checked == false) {
+                            value = "false";
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                }
+                result = result.substring(0, result.length - 1);
+                result += "}";
+                call_admin(LinkAPI + '/Account/Login', result);
+
+            });
+        });
+    </script>
+
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+
+            <div class="featured-boxes">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="ajax-panel"></div>
+                        <div id="panel-form" class="featured-box featured-box-primary text-left mt-5" style="">
+                            <div class="box-content">
+                                <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">I'm a Returning Customer</h4>
+                               <div id="errorfrom"></div>
+                                
+                                <form action="/" id="frmSignIn" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <label>Username or E-mail Address</label>
+                                            <input type="text" value="" id="Email" name="Email" class="form-control form-control-lg">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+
+                                            <label>Password</label>
+                                            <input type="password" value="" id="Password" name="Password" class="form-control form-control-lg">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-lg-6">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" id="RememberMe" type="checkbox"  name="RememberMe"> Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <input type="submit" id="submit" value="Login" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

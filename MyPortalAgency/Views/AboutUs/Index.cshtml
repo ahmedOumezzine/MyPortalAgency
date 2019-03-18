@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section pageheader{
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">About US</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-static">
+                    <span class="page-header-title-border visible" style="width: 196.703px;"></span>
+                    <div id="Title"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@section scripts{
+    <script>
+        Models.push(
+            new Model("AboutUs", "AboutUs", "render_AboutUs"),
+            new Model("PillarsofOurSuccess", "PillarsofOurSuccess", "render_PillarsofOurSuccess"),
+            new Model("OurStory", "OurStory", "render_OurStory")
+        );
+        call(LinkAPI + '/PageView/GetPages/', 'GET', { type: 'AboutUs' }, Models);
+    </script>
+}
+
+<div class="container">
+    <div id="Description"></div> 
+</div>
+
+<div class="container">
+    <div id="AboutUs"> </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr class="tall">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="OurStory"> </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr class="tall">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="PillarsofOurSuccess"></div>
+    
+</div>

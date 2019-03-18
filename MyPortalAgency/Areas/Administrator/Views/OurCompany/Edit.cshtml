@@ -1,0 +1,125 @@
+﻿@model MyPortalAgency.Areas.Administrator.Models.PageContentViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+@section scripts{
+    <script>
+        var Linkback = '@Model.Page';
+        function getB64Str(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+        $(document).ready(function () {
+            $("#submit").click(function (event) {
+                event.preventDefault();
+
+                var form = document.forms["frmOurStory"];
+                console.log($('frmOurStory').serialize());
+                var length = form.length;
+                var result = "{";
+                var index;
+ 
+                for (i = 0; i < length; i++) {
+                    var e = form[i].name;
+                    var key = form[i].id;
+                    var value = form[i].value;
+                    var fieldType = form[i].type;
+                    //
+                    // Hiddin
+                    //
+                    if (fieldType == "hidden") {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    } //
+                    // RADIO BUTTON
+                    //
+                    if (fieldType == "radio") {
+                        for (x = 0; x < form.elements[e].length; x++) {
+                            if (form.elements[e][x].checked) {
+                                index = x;
+                            }
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    //
+                    // TEXT, TEXTAREA, and DROPDOWN
+                    //
+                    if ((fieldType == "text") || (fieldType == "password") || (fieldType == "textarea")) {
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                    // CHECKBOX
+                    //
+                    if (fieldType == "checkbox") {
+
+                        if (form.elements[e].checked == true) {
+                            value = "true";
+                        }
+                        if (form.elements[e].checked == false) {
+                            value = "false";
+                        }
+                        result = result + '"' + key + '" : ' + '"' + value + '",';
+                    }
+                }
+         
+             
+                var file = document.querySelector('input[type=file]').files[0];
+                var blob = file.slice();
+
+                var reader = new FileReader();
+                reader.onloadend = function (evt) {
+                    if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+
+                        var cont = evt.target.result
+                        var base64String = getB64Str(cont);
+                        result = result + '"logo" : ' + '"' + base64String + '",';
+                        result = result.substring(0, result.length - 1);
+                        result += "}";
+                        call_admin(LinkAPI + '/PageView/EditPageContent', result);
+
+                    }
+                };
+                reader.readAsArrayBuffer(blob);
+
+            });
+        });
+    </script>
+}
+
+@switch (Model.Type)
+{
+    case "OurStory":
+        @(await Html.PartialAsync("Forms/OurStory", Model))
+        break;
+    case "AboutUs":
+        @(await Html.PartialAsync("Forms/AboutUs", Model))
+        break;
+    case "OurPortfolios":
+        @(await Html.PartialAsync("Forms/OurPortfolios", Model))
+        break;
+    case "OurServices":
+        @(await Html.PartialAsync("Forms/OurServices", Model))
+        break;
+    case "BusinessHours":
+        @(await Html.PartialAsync("Forms/BusinessHours", Model))
+        break;
+    case "PillarsofOurSuccess":
+        @(await Html.PartialAsync("Forms/PillarsofOurSuccess", Model))
+        break;
+    case "OurJobs":
+        @(await Html.PartialAsync("Forms/OurJobs", Model))
+        break;
+    case "WelovetoHelp":
+        @(await Html.PartialAsync("Forms/WelovetoHelp", Model))
+        break;
+    case "OurCareers":
+        @(await Html.PartialAsync("Forms/OurCareers", Model))
+        break;
+    case "OurOffice":
+        @(await Html.PartialAsync("Forms/OurOffice", Model))
+        break;
+    default: break;
+}
