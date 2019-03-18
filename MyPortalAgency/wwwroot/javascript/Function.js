@@ -1,5 +1,5 @@
-﻿//const LinkAPI ="https://myportalagency.azurewebsites.net/api";
-const LinkAPI ="https://localhost:44380";
+﻿const LinkAPI ="https://myportalagency.azurewebsites.net/api";
+//const LinkAPI ="https://localhost:44380";
 const ModelTheme_Options = [];
 function Theme_Option(url, Models) {
     var Theme = [];

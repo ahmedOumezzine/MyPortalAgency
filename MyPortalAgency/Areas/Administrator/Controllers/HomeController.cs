@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyPortalAgency.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()

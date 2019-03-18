@@ -13,6 +13,8 @@ using Newtonsoft.Json;
 namespace MyPortalAgency.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    [Microsoft.AspNetCore.Authorization.Authorize]
+
     public class OurCompanyController : Controller
     {
         public IActionResult Index()
@@ -123,19 +125,18 @@ namespace MyPortalAgency.Areas.Administrator.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44380/");
+                client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net");
                 client.DefaultRequestHeaders.Accept.Clear();
-                HttpContext.Session.SetString("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjkxZjQ0MDQ2LTA3MzUtNDdiMS1iNmRhLTM4ZmY4MmJlZDY2ZiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiYTE4YmU5YzAtYWE2NS00YWY4LWJkMTctMDBiZDkzNDRlNTc1IiwiZXhwIjoxNTU1NDgwNTkyLCJpc3MiOiJodHRwOi8vand0YXV0aF90ZXN0LmNvbSIsImF1ZCI6Imh0dHA6Ly9qd3RhdXRoX3Rlc3QuY29tIn0.iOsm5emb53l_3rFv3_xE_WLwa9_F9YeByJVjtlqCCU8");
                 client.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer",HttpContext.Session.GetString("token"));
 
 
                 string myContent = JsonConvert.SerializeObject(Model);
                 var stringContent = new StringContent(myContent, UnicodeEncoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await client.PostAsync("/PageView/EditPage/", stringContent);
+                HttpResponseMessage response = await client.PostAsync("api/PageView/EditPage/", stringContent);
                 if (response.IsSuccessStatusCode)
                 {
-
+                    return RedirectToAction(Model.Type);
                 }
             }
             return View();

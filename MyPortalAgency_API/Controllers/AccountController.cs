@@ -31,16 +31,9 @@ namespace MyPortalAgency_API.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        [Route("Login2")]
-        public async Task<object> Login2([FromQuery] LoginModel model)
-        {
-            var result = JsonConvert.SerializeObject(model);
-            return result;
-        }
         [HttpPost]
         [Route("Login")]
-        public async Task<object> Login([FromBody] LoginModel model)
+        public async Task<object> Login(LoginModel model)
         {
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
@@ -48,9 +41,9 @@ namespace MyPortalAgency_API.Controllers
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.UserName == model.Email);
 
-                return  new  { Token = await GenerateJwtToken(model.Email, appUser) };
+                return  new  { Token = await GenerateJwtToken(model.Email, appUser) , error = "LOGIN" };
             }
-            return new { error = "INVALID_LOGIN_ATTEMPT" };
+            return new { Token = "", error = "INVALID_LOGIN_ATTEMPT" };
         }
 
         [HttpPost]

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyPortalAgency.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    [Microsoft.AspNetCore.Authorization.Authorize]
+
     public class ListDocsController : Controller
     {
         public IActionResult Index()

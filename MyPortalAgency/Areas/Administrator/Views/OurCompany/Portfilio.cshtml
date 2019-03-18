@@ -15,8 +15,6 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <a id="PasswordReset" asp-controller="Account" asp-action="PasswordReset" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#formData" tabindex="5" class="inshora-forgot-password">Forgot Password?</a>
-
         <form id="login-form" asp-controller="OurCompany" asp-action="EditPage" method="post" role="form"
               data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#formData"
               data-ajax-failure="failed" data-ajax-complete="completed">
@@ -26,6 +24,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <input type="hidden" id="Id" name="Id" value="@Model.Id" class="form-control">
+                    <input type="hidden" id="Type" name="Type" value="Portfilio" class="form-control">
 
                     <div class="form-group row">
                         <label asp-for="Title" class="col-sm-4 control-label text-sm-left  pt-2">Your Title:</label>
@@ -43,8 +42,7 @@
                     </div>
                 </div>
                 <footer class="card-footer text-right">
-                    <input id="submit" type="submit" value="Submit" class="btn btn-primary" />
-                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-primary" value="Log In">
+                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-primary" value="Submit">
 
                 </footer>
             </section>
