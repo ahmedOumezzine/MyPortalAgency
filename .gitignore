@@ -9,6 +9,9 @@ project.lock.json
 
 # User-specific files
 *.suo
+*.cache
+*.dll
+*.pdb
 *.user
 *.userosscache
 *.sln.docstates
@@ -24,6 +27,10 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+MyPortalAgency/obj/*.*
+MyPortalAgency/bin/
+MyPortalAgency_API/obj/
+MyPortalAgency_API/bin/
 msbuild.log
 msbuild.err
 msbuild.wrn
