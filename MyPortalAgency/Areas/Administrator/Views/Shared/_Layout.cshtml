@@ -180,7 +180,16 @@
     <script src="~/portal/js\theme.init.js"></script>
     <script src="~/javascript/Function.js"></script>
     <script src="~/javascript/Function_Admin.js"></script>
-
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+         completed = () => {
+        alert('Posted using Unobtrusive AJAX');
+    };
+        failed = function (xhr) {
+            alert(`Status: {xhr.status}, Status Text: {xhr.statusText}`);
+        };
+    </script>
     @RenderSection("Scripts", required: false)
 
 </body>

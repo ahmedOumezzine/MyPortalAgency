@@ -54,6 +54,8 @@ namespace MyPortalAgency
 
             });
 
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -77,6 +79,8 @@ namespace MyPortalAgency
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseSession();
+
 
             app.UseMvc(routes =>
             {
