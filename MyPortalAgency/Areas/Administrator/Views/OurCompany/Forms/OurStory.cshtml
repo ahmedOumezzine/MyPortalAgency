@@ -10,45 +10,54 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div id="errorfrom"></div>
-        <div id="ajax-panel"></div>
 
-        <form action="/" id="frmOurStory" class="form-horizontal form-bordered">
-            <section class="card">
-                <input type="hidden" name="ID" id="ID" value="@Model.Id"/>
-                <input type="hidden" name="PageViewModelId" id="PageViewModelId" value="@Model.PageViewModelId"/>
-                <input type="hidden" name="Type" id="Type" value="@Model.Type"/>
-                <div class="card-body">
-                    <div class="form-group row">
-                        <label class="col-sm-4 control-label text-sm-left  pt-2">Annee:</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="Title"  id="Title" value="@Model.Title" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 control-label text-sm-left  pt-2">Your Description:</label>
-                        <div class="col-sm-8">
-                            <textarea type="text" id="Description" name="Description" class="form-control">@Model.Description</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 control-label text-sm-left  pt-2">Your picture:</label>
-
-                        <div class="col-sm-8">
-                            <input type="file" name="Logo" id="Logo" class="form-control">
-                        </div>
-                    </div>  <div class="form-group row">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="login-form" asp-controller="OurCompany" asp-action="@(Model.Id == Guid.Empty ? "Create":"Edit")" method="post" role="form"
+                      data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#formData"
+                      data-ajax-failure="failed" data-ajax-complete="completed">
+                    <section class="card">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="hidden" name="ID" id="ID" value="@Model.Id" />
+                        <input type="hidden" name="PageViewModelId" id="PageViewModelId" value="@Model.PageViewModelId" />
+                        <input type="hidden" name="Type" id="Type" value="@Model.Type" />
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-sm-4 control-label text-sm-left  pt-2">Annee:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="Title" id="Title" value="@Model.Title" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 control-label text-sm-left  pt-2">Your Description:</label>
+                                <div class="col-sm-8">
+                                    <textarea type="text" id="Description" name="Description" class="form-control">@Model.Description</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 control-label text-sm-left  pt-2">Your picture:</label>
 
                                 <div class="col-sm-8">
-                                    <img src="@Model.Logo" width="100" height="50" alt="base64 test">
-                                </div>
-                    </div>
-                </div>
-                <footer class="card-footer text-right">
-                    <input type="submit" id="submit" value="submit" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
+                                    <select name="logo" id="logo" class="form-control" style="  font-family: FontAwesome, sans-serif;">
+                                        <option value="fa fa-2 fa-user"> user </option>
+                                        <option value="fa fa-user"> user2 </option>
 
-                </footer>
-            </section>
-        </form>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer text-right">
+                            <input type="submit" id="submit" value="submit" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
+
+                        </footer>
+                    </section>
+
+                </form>
+
+
+
+            </div>
+        </div>
     </div>
 </div>

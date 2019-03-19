@@ -68,8 +68,7 @@
     @aboutus.Description
 
     <div class="summary-footer  text-right " style="">
-        <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@aboutus.Id" asp-route-Page="AboutUs" type="button" class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
-        <a asp-controller="OurCompany" asp-action="delete" type="button" asp-route-id="@aboutus.Id" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a>
+        <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@aboutus.Id" asp-route-Page="AboutUs"  class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
     </div>
 </div>
 
@@ -81,7 +80,7 @@
 
     <li class="green">
         <span class="title"> Our Story</span>
-        <span class="description truncate text-right"><a asp-controller="OurCompany" asp-action="Create" asp-route-id="03F17127-5270-4067-9F5E-0C4B798BE221" asp-route-Type="OurStory" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-default">Add</a></span>
+        <span class="description truncate text-right"><a asp-controller="OurCompany" asp-action="Create" asp-route-id="@aboutus.Id" asp-route-Type="OurStory" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-default">Add</a></span>
     </li>
 </ul>
 
@@ -107,8 +106,8 @@
                         <p>@item.Description</p>
                         <hr>
                         <div class="summary-footer  text-right " style="">
-                            <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@item.Id" asp-route-Page="OurStory" type="button" class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
-                            <a asp-controller="OurCompany" asp-action="delete" type="button" asp-route-id="@item.Id" asp-route-Page="OurStory" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@item.Id" asp-route-Page="AboutUs"  class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
+                            <a asp-controller="OurCompany" asp-action="delete"  asp-route-id="@item.Id" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </section>
@@ -127,7 +126,7 @@
 
     <li class="blue">
         <span class="title"> Pillars of Our Success</span>
-        <span class="description truncate text-right"><a asp-controller="OurCompany" asp-action="Create" asp-route-id="03F17127-5270-4067-9F5E-0C4B798BE221" asp-route-Type="PillarsofOurSuccess" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-default">Add</a></span>
+        <span class="description truncate text-right"><a asp-controller="OurCompany" asp-action="Create" asp-route-id="@aboutus.Id" asp-route-Type="PillarsofOurSuccess" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-default">Add</a></span>
     </li>
 
 </ul>
@@ -157,8 +156,8 @@
                         <p>@item.Description</p>
                         <hr>
                         <div class="summary-footer  text-right " style="">
-                            <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@item.Id" asp-route-Page="OurStory" type="button" class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
-                            <a asp-controller="OurCompany" asp-action="delete" type="button" asp-route-id="@item.Id" asp-route-Page="OurStory" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a asp-controller="OurCompany" asp-action="Edit" asp-route-id="@item.Id" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-warning"><i class="fa fa-edit"></i></a>
+                            <a asp-controller="OurCompany" asp-action="delete" asp-route-id="@item.Id" asp-route-Page="AboutUs" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </section>

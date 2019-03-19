@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -117,17 +118,46 @@ namespace MyPortalAgency.Areas.Administrator.Controllers
             ViewBag.id = id;
             ViewBag.Type = Type;
 
-            return View( new MyPortalAgency.Areas.Administrator.Models.PageContentViewModel() { PageViewModelId = id, Type = Type, Page = Page });
+            return View( new MyPortalAgency.Areas.Administrator.Models.PageContentViewModel() { Id = Guid.Empty , PageViewModelId = id, Type = Type, Page = Page });
         }
-
         [HttpPost]
-        public async Task<IActionResult> EditPage(MyPortalAgency.Areas.Administrator.Models.PageViewModel Model)
+        public async Task<IActionResult> Create(MyPortalAgency.Areas.Administrator.Models.PageContentViewModel Model)
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;//cast to claimsidentity
+            IEnumerable<Claim> claim = identity.Claims;
+            var token = claim.Where(x => x.Type == "token").FirstOrDefault();
+
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net");
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer",HttpContext.Session.GetString("token"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Value);
+                string myContent = JsonConvert.SerializeObject(Model);
+                var stringContent = new StringContent(myContent, UnicodeEncoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("api/PageView/CreatePageContent/", stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(Model.Type);
+                }
+                ModelState.AddModelError("error", " Please try  in again.");
+                return View(Model);
+            }
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditPage(MyPortalAgency.Areas.Administrator.Models.PageViewModel Model)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;//cast to claimsidentity
+            IEnumerable<Claim> claim = identity.Claims;
+            var token = claim.Where(x => x.Type == "token").FirstOrDefault();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", token.Value);
 
 
                 string myContent = JsonConvert.SerializeObject(Model);
@@ -138,8 +168,33 @@ namespace MyPortalAgency.Areas.Administrator.Controllers
                 {
                     return RedirectToAction(Model.Type);
                 }
+                ModelState.AddModelError("error", "Login failed. Please try logging in again.");
+                return View(Model);
             }
-            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(MyPortalAgency.Areas.Administrator.Models.PageContentViewModel Model)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;//cast to claimsidentity
+            IEnumerable<Claim> claim = identity.Claims;
+            var token = claim.Where(x => x.Type == "token").FirstOrDefault();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", token.Value);
+                string myContent = JsonConvert.SerializeObject(Model);
+                var stringContent = new StringContent(myContent, UnicodeEncoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("api/PageView/EditPageContent/", stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(Model.Type);
+                }
+                ModelState.AddModelError("error", " Please try  in again.");
+                return View(Model);
+            }
         }
 
         
@@ -184,5 +239,30 @@ namespace MyPortalAgency.Areas.Administrator.Controllers
             PageContentView.Page = Page;
             return View(PageContentView);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(MyPortalAgency.Areas.Administrator.Models.PageContentViewModel Model)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;//cast to claimsidentity
+            IEnumerable<Claim> claim = identity.Claims;
+            var token = claim.Where(x => x.Type == "token").FirstOrDefault();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://myportalagency.azurewebsites.net");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Value);
+                string myContent = JsonConvert.SerializeObject(Model);
+                var stringContent = new StringContent(myContent, UnicodeEncoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("api/PageView/DeletPageContent/", stringContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(Model.Page);
+                }
+                ModelState.AddModelError("error", " Please try  in again.");
+                return View(Model);
+            }
+        }
+
     }
 }

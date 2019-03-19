@@ -61,20 +61,20 @@ namespace MyPortalAgency.Controllers
                     MyPortalAgency.Models.LoginAPI LoginAPI2 = await resulttt.Content.ReadAsAsync<MyPortalAgency.Models.LoginAPI>();
                     if(LoginAPI2.error== "INVALID_LOGIN_ATTEMPT")
                     {
-                        ModelState.AddModelError("error", "notvalid");
+                        ModelState.AddModelError("error", "Login failed. Please try logging in again.");
                         return View(Model);
                     }
                     if (LoginAPI2.Token!= "null")
                     {
  
                         var claims = new List<Claim>{
-                            new Claim(ClaimTypes.Name, Model.Email)
+                            new Claim(ClaimTypes.Name, Model.Email),
+                            new Claim("token", LoginAPI2.Token)
                         };
                         var userIdentity = new ClaimsIdentity(claims, "login");
                         ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                         await HttpContext.SignInAsync(principal);
-                        HttpContext.Session.SetString("token", LoginAPI2.Token);
-                         
+                       
                         if (Url.IsLocalUrl(ReturnUrl))
                         {
                              return Redirect(ReturnUrl);

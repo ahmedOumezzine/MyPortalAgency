@@ -1,94 +1,49 @@
 ﻿@model MyPortalAgency.Areas.Administrator.Models.PageContentViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Delete";
 }
 
-@section scripts{
-    <script>
-                        var  LinkAdmin = '@Url.Action("AboutUs","OurCompany",new { Area="Administrator"})';
-        var Linkback = '@Model.Page';
-        function getB64Str(buffer) {
-            var binary = '';
-            var bytes = new Uint8Array(buffer);
-            var len = bytes.byteLength;
-            for (var i = 0; i < len; i++) {
-                binary += String.fromCharCode(bytes[i]);
-            }
-            return window.btoa(binary);
-        }
-        $(document).ready(function () {
-            $("#submit").click(function (event) {
-                event.preventDefault();
 
-                var form = document.forms["frmOurStory"];
-                var length = form.length;
-                var result = "{";
-                for (i = 0; i < length; i++) {
-                    var e = form[i].name;
-                    var key = form[i].id;
-                    var value = form[i].value;
-                    var fieldType = form[i].type;
-                    //
-                    // Hiddin
-                    //
-                    if (fieldType == "hidden") {
-                        result = result + '"' + key + '" : ' + '"' + value + '",';
-                    } //
-                    // RADIO BUTTON
-                    //
-                    if (fieldType == "radio") {
-                        for (x = 0; x < form.elements[e].length; x++) {
-                            if (form.elements[e][x].checked) {
-                                index = x;
-                            }
-                        }
-                        result = result + '"' + key + '" : ' + '"' + value + '",';
-                    }
-                    //
-                    // TEXT, TEXTAREA, and DROPDOWN
-                    //
-                    if ((fieldType == "text") || (fieldType == "password") || (fieldType == "textarea")) {
-                        result = result + '"' + key + '" : ' + '"' + value + '",';
-                    }
-                    // CHECKBOX
-                    //
-                    if (fieldType == "checkbox") {
-
-                        if (form.elements[e].checked == true) {
-                            value = "true";
-                        }
-                        if (form.elements[e].checked == false) {
-                            value = "false";
-                        }
-                        result = result + '"' + key + '" : ' + '"' + value + '",';
-                    }
-                }
-
-                result = result.substring(0, result.length - 1);
-                result += "}";
-                call_admin(LinkAPI + '/PageView/DeletPageContent', result);
-
-             
-
-            });
-        });
-    </script>
-}
 <section class="card mb-4">
-    <div class="card-body">
-        <form action="/" id="frmOurStory" class="form-horizontal form-bordered">
-            <section class="card">
-                <input type="hidden" name="Id" id="Id" value="@Model.Id" />
-                <input type="hidden" name="Title" id="Title" value="@Model.Title" />
-                <input type="hidden" name="Description" id="Description" value="@Model.Description" />
-                <input type="hidden" name="Logo" id="Logo" value="@Model.Logo" />
-                are you sur you want delet this ?
-                <br /> <br /> <br />
-                <footer class="card-footer text-right">
-                    <input type="submit" id="submit" value="submit" class="btn btn-primary float-right mb-5" data-loading-text="Loading...">
-                </footer>
-            </section>
-        </form>
-    </div>
+    <form id="login-form" asp-controller="OurCompany" asp-action="Delete" method="post" role="form"
+          data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#formData"
+          data-ajax-failure="failed" data-ajax-complete="completed">
+        <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+        <input type="hidden" name="Page" id="Page" value="@Model.Page" />
+        <section class="card card-featured-right card-featured-primary mb-4">
+            <div class="card-body">
+                <div class="widget-summary">
+                    <div class="widget-summary-col widget-summary-col-icon">
+                        <div class="">
+                            @if (Model.Logo.StartsWith("data"))
+                            {
+                                <img src="@Model.Logo" class="rounded-circle" style="height: 150px;width: 170px;">
+                            }
+                            else
+                            {
+                                <i class="@Model.Logo"></i>
+                            }
+                        </div>
+                    </div>
+                    <div class="widget-summary-col">
+                        <div class="summary">
+                            <h4 class="title">@Model.Title</h4>
+                            <div class="info">
+                                <strong class="amount">@Model.Description</strong>
+                            </div>
+                        </div>
+                        <div class="summary-footer" style=" margin-top: 10%; ">
+                            Are you sure you want to permanently delete this current item?<br />
+                            <input type="submit" id="submit" value="submit" class="btn btn-primary float-right" data-loading-text="Loading..." style=" margin: 10px 14px; ">
+                            <a asp-controller="OurCompany"  asp-action="@Model.Page"  class="btn btn-info float-right" data-loading-text="Loading..." style=" margin: 10px 14px; ">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </form>
+
 </section>

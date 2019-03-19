@@ -88,7 +88,7 @@ namespace MyPortalAgency_API.Controllers
             var result = repo.Repository<PageContentViewModel>().FindBy(x => x.Id == model.Id);
             result.Title = model.Title;
             result.Description = model.Description;
-            if (!model.Logo.StartsWith("fa"))
+            if (model.Logo!=null && !model.Logo.StartsWith("fa"))
             {
                 model.Logo = "data:image/jpeg;base64," + model.Logo;
             }
